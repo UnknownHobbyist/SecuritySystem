@@ -11,5 +11,5 @@ class JSONSERVICE:
     @staticmethod
     def setJson(j:dict):
         file = open('source/json.json',"w")
-        file.write(json.dump(j))
+        file.write(json.dumps(j))
         file.close()
