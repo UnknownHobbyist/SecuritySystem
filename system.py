@@ -12,21 +12,24 @@ from gpiozero import LED
 from time import sleep
 
 class SecuritySystem:
-    # if the alarm is armed or not
-    alarmState = AlarmState.DISABLED
 
-    #initializing sound for triggerAlarm
-    button_sounds = {
-        Button(2): Sound("samples/drum_tom_mid_hard.wav"),
-        Button(3): Sound("samples/drum_cymbal_open.wav"),
-    }
+    def __init__(self):
+
+        # if the alarm is armed or not
+        self.alarmState = AlarmState.DISABLED
+
+        #initializing sound for triggerAlarm
+        self.button_sounds = {
+            Button(2): Sound("samples/drum_tom_mid_hard.wav"),
+            Button(3): Sound("samples/drum_cymbal_open.wav"),
+        }
 
 
     #
     # Changes the state of the alarm
     #
     def changeAlarm():
-        alarmState = !alarmArmed
+        alarmState = not alarmArmed
 
     #
     # authType {"rfid", "pwd"}
@@ -38,6 +41,13 @@ class SecuritySystem:
             return True
         else:
             return False
+
+    def changePWD(pwd: str):
+
+
+    def changeRFID(rfid: str):
+
+
 
     def triggerAlarm():
 
