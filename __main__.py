@@ -5,4 +5,4 @@ sec_serv = system.SystemService()
 if __name__ == '__main__':
     GPIO.setmode(GPIO.BOARD)
 
-    GPIO.setup(GPIO_SETIINGS["ALARM_CHANGER"])
+    GPIO.setup(GPIO_SETIINGS["ALARM_CHANGER"], GPIO.OUT)
