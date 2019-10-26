@@ -21,8 +21,9 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
 
-        self.sound_obj = vlc.MediaPlayer("./sounds/alarm.mp3")
-        self.sound_obj.Instance('--input-repeat=-1', '--no-video-title-show', '--fullscreen', '--mouse-hide-timeout=0')
+        self.vlc_inst = vlc.Instance('--input-repeat=999999')
+        self.sound_obj = self.vlc_inst.media_player_new()
+        self.sound_obj.set_media("./sounds/alarm.mp3")
 
 
     #
