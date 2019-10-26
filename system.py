@@ -44,8 +44,6 @@ class SecuritySystem:
             print('running')
             return
 
-        print("startet")
-
         self.alarmState = AlarmState.RUNNING
         gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
         gpio_led_thread.start()
