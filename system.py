@@ -21,7 +21,7 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
 
-        self.sound_obj = vlc.MediaPlayer("file://sounds/alarm.mp3")
+        self.sound_obj = vlc.MediaPlayer("file://home/pi/SecuritySystem/sounds/alarm.mp3")
 
     #
     # Changes the state of the alarm
