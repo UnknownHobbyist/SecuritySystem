@@ -1,6 +1,6 @@
 import json
-import state_enum.py
-import gpio_service.py as gpios
+import state_enum
+import gpio_service as gpios
 
 from json_service import JSONService
 
