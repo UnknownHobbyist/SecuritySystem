@@ -15,7 +15,7 @@ def runWhileRFID():
 
     while True:
         try:
-            print(2)
+            print(3)
             id, text = reader.read()
             print(id)
             if sec_serv.auth(str(id),"rfid")==True:
@@ -32,6 +32,6 @@ def runWhileRFID():
                 time.sleep(2)
         except:
             pass
-            
+
         finally:
             pass
