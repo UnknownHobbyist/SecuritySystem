@@ -1,5 +1,5 @@
 GPIO_SETTINGS = {
-    "ALARM_SOURCE":29,
+    "ALARM_SOURCE":33,
     "ALARM_CHANGER":31,
     "ALARM_SIGNAL":{
         "1":7,
