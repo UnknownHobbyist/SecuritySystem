@@ -37,7 +37,7 @@ class NumPad:
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
 
-                            
+
 
                             while(GPIO.input(self.row[i]) == 0):
                                 pass
