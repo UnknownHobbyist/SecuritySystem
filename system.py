@@ -28,6 +28,7 @@ class SecuritySystem:
 
         if authCode == jsonFile[authType]:
             return True
+
         else:
             return False
 
@@ -38,5 +39,6 @@ class SecuritySystem:
         print('test')
 
     def triggerAlarm(self):
+        self.alarmState = AlarmState.RUNNING
         gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
         gpio_led_thread.start()
