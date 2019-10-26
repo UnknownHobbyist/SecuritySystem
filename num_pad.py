@@ -16,8 +16,8 @@ class NumPad:
                         [7, 8, 9, 'C'],
                         ['*', 0, '#', 'D'] ]
 
-        self.row = [7, 11, 13, 15]
-        self.col = [12, 16, 18, 22]
+        self.row = [KEYBOARD['1'], KEYBOARD['2'], KEYBOARD['3'], KEYBOARD['4']]
+        self.col = [KEYBOARD['5'], KEYBOARD['6'], KEYBOARD['7'], KEYBOARD['8']]
 
         for j in range(4):
             GPIO.setup(self.col[j], GPIO.OUT)
