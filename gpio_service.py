@@ -7,15 +7,19 @@ from settings import *
 #Activating Alarm LEDs
 def gpioAlarmLEDs():
     while __main__.sec_serv.alarmState == se.AlarmState.RUNNING:
-        GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.HIGH)
+        GPIO.output(GPIO_SETTINGS['ALARM_CHANGER'], GPIO.HIGH)
         time.sleep(0.5)
-        GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
+        GPIO.output(GPIO_SETTINGS['ALARM_CHANGER'], GPIO.LOW)
         time.sleep(0.5)
 
 def handleAlarmSignal():
     time.sleep(1.5)
     if GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
             __main__.sec_serv.triggerAlarm()
+
+def runAlarmSound():
+    GPIO.output(GPIO_SETTINGS['ALARM_SOURCE'], GPIO.HIGH)
+
 
 GPIO.setmode(GPIO.BOARD);
 
