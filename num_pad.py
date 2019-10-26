@@ -54,7 +54,7 @@ class NumPad:
             GPIO.cleanup()
 
     def run_code(self):
-        from main import sec_serv
+        from __main__ import sec_serv
         if self.code[0] == 'A':
             if sec_serv.alarmState == AlarmState.DISABLED and len(self.code) == 1:
                 print('neues passwort bitte')
