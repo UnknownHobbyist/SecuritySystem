@@ -1,3 +1,4 @@
+import __main__
 import json
 import state_enum
 import gpio_service as gpios
