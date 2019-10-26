@@ -1,7 +1,7 @@
 import __main__
 import json
 import gpio_service as gpios
-import rfid_read as rr
+
 import threading
 
 from pygame import mixer
@@ -60,9 +60,7 @@ class SecuritySystem:
     def freePorts(self):
         gpio.cleanup()
     def setup(self):
-        rr_fred = threading.Thread(target=rr.runWhileRFID)
-        rr_fred.start()
-        # Give us 100 points PLEASE!
+
 
         gpios.setup()
 
