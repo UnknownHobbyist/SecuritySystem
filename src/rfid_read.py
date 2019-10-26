@@ -2,34 +2,35 @@ import time
 
 from state_enum import *
 
-def runWhileRFID():
+def rfid_checker():
 
     import RPi.GPIO as GPIO
-
     import sys
     sys.path.append('/home/pi/MFRC522-python')
 
     from __main__ import sec_serv
-
     from mfrc522 import SimpleMFRC522
+
     reader = SimpleMFRC522()
 
     while True:
         try:
-            print(45)
             id, text = reader.read()
-            print(str(id))
-            print(3)
-            if sec_serv.auth(str(id),"rfid")==True:
+
+            print(id + " something")
+
+            if sec_serv.auth(str(id),"rfid"):
                 if sec_serv.alarmState != AlarmState.DISABLED:
                     sec_serv.changeAlarm(AlarmState.DISABLED)
-                else:
-                    if sec_serv.alarmState == AlarmState.RUNNING:
-                        sec_serv.stopAlarm()
+                elif:
+                    sec_serv.alarmState == AlarmState.RUNNING:
+                    sec_serv.stopAlarm()
                     sec_serv.changeAlarm(AlarmState.ARMED)
-                print("Security system "+str(sec_serv.alarmState))
+                #print("Security system " + str(sec_serv.alarmState))
             else:
-                print("access denied")
-
+                print("Access has been denied")
+        except:
+            GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
+            GPIO.cleanup()
         finally:
             pass

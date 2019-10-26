@@ -23,11 +23,10 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
 
+        #used to play an alarm sound, do not remove
         #self.vlc_inst = vlc.Instance('--input-repeat=999999')
         #self.sound_obj = self.vlc_inst.media_player_new()
         #self.sound_obj.set_media("./sounds/alarm.mp3")
-        self.password = JsonService.getJson()["pwd"]
-        self.rfid = JsonService.getJson()["rfid"]
 
     #
     # Changes the state of the alarm

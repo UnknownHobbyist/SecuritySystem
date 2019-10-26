@@ -43,17 +43,7 @@ class NumPad:
                     GPIO.output(self.col[j], 0)
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
-                            if self.matrix[i][j] == 'D':
-
-                                self.runCode()
-                            elif self.matrix[i][j] == 'A':
-                                self.code += 'A'
-                                self.runCode()
-                            elif self.matrix[i][j] == 'B':
-                                self.code = ''
-                            else:
-                                self.code += str(self.matrix[i][j])
-
+                            addChar(self.matrix[i][j])
 
                             print(self.matrix[i][j])
                             while(GPIO.input(self.row[i]) == 0):
@@ -63,23 +53,43 @@ class NumPad:
         except KeyboardInterrupt:
             GPIO.cleanup()
 
-    def runCode(self):
+    #
+    # Uses a string to collect and handle the input from check
+    #
+    def addChar(self, char: str):
         from __main__ import sec_serv
 
-        print(self.code)
-
-        if self.code[len(self.code) - 1] == 'A':
-            if len(self.code) > 1 and self.code[0:self.code[0:len(self.code)-2]] == sec_serv.password:
+        if char == 'A':
+            if: sec_serv.auth(self.code[1:], 'pwd'):
                 self.code = 'A'
-                print('Bitte gebe nun das neue Passwort ein!')
+                print('Bitte geben sie nun ihr neues Passwort ein und bestätigen sie mit D!')
             else:
-                print('Das Passwort ist falsch, bitte versuche es erneut')
-        if self.code[0] == 'A' and len(self.code) > 1:
-            print('Neues Passwort ist: ' + self.code[1:len(self.code)-1])
-            sec_serv.changePWD(self.code[1:len(self.code)-1])
-
+                print('Um ihr passwort zuändern müssen sie zunächst ihr aktuelles Passwort angeben!')
+                self.code = ''
+        elif char == 'B':
+            self.code = ''
+        elif char == 'C':
+            # The device is set to armed State
+            sleep(10)
+            sec_serv.alarmState = AlarmState.armed
             pass
-        if self.code[len(self.code)]
+        elif char == 'D':
+            if self.code[0] == 'A' and len(self.code) > 1:
+                sec_serv.changePWD(self.code[1:])
+                print('Sie haben ihren Code erfolgreich auf: ' + self.code + " geändert")
+                self.code = ''
+            else:
+                if sec_serv.auth(self.code, "pwd"):
+                    sec_serv.stopAlarm()
+                    sec_serv.changeAlarm(AlarmState.DISABLED)
+                    print('Willkommen zurück Master!')
+                    self.code = ''
+                else:
+                    print('Das eingegebene Passwort ist falsch!')
+                    self.code = ''
+        elif char = '\#':
+            pass
+        elif char = '*':
+            pass
         else:
-            if sec_serv.alarmState != AlarmState.DISABLED and self.code == sec_serv.password:
-                sec_serv.alarmState = AlarmState.DISABLED
+            self.code += char
