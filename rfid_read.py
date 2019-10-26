@@ -7,9 +7,11 @@ import sys
 sys.path.append('/home/pi/MFRC522-python')
 
 from mfrc522 import SimpleMFRC522
-from __main__ import sec_serv
+
 def runWhileRFID():
+    from __main__ import sec_serv
     reader = SimpleMFRC522()
+
 
 
     while True:
