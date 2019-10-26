@@ -17,10 +17,10 @@ while True:
     try:
         id, text = reader.read()
         if sec_serv.auth(str(id),"rfid")==True:
-            if sec_serv.AlarmState != DISABLED
-                sec_serv.changeAlarm(DISABLED)
+            if sec_serv.AlarmState != AlarmState.DISABLED
+                sec_serv.changeAlarm(Alarmstate.DISABLED)
             else:
-                sec_serv.changeAlarm(ARMED)
+                sec_serv.changeAlarm(AlarmState.ARMED)
             print("Security system "+str(sec_serv.AlarmState))
             time.sleep(2)
         else:
