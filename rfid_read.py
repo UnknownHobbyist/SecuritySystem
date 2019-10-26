@@ -5,15 +5,22 @@ from state_enum import *
 def runWhileRFID():
     import RPi.GPIO as GPIO
 
+    GPIO.setmode(GPIO.BCM)
+
     import sys
-    sys.path.append('/home/pi/SecuritySystem/MFRC522-python')
+    sys.path.append('/home/pi/MFRC522-python')
 
     from __main__ import sec_serv
 
-
+    from mfrc522 import SimpleMFRC522
+    reader = SimpleMFRC522()
 
     while True:
         try:
+            print(45)
+            id, text = reader.read()
+            #id=403741333852
+            print(str(id))
             print(3)
             if sec_serv.auth(str(id),"rfid")==True:
                 if sec_serv.alarmState != AlarmState.DISABLED:
