@@ -3,6 +3,8 @@ import __main__
 import system
 import time
 
+from state_enum import *
+
 import sys
 sys.path.append('/home/pi/MFRC522-python')
 
