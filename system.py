@@ -23,7 +23,7 @@ class SecuritySystem:
     #
     # Changes the state of the alarm
     #
-    def changeAlarm(self, state: AlarmState):
+    def changeAlarm(self, state):
         self.alarmState = state;
 
     #
