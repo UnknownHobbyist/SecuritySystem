@@ -27,10 +27,8 @@ def runWhileRFID():
                         sec_serv.stopAlarm()
                     sec_serv.changeAlarm(AlarmState.ARMED)
                 print("Security system "+str(sec_serv.alarmState))
-                time.sleep(2)
             else:
                 print("access denied")
-                time.sleep(2)
 
         finally:
             pass
