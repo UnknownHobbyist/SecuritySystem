@@ -36,16 +36,16 @@ class NumPad:
                 #do stuff
 
                 for j in range(4):
-                    GPIO.output(col[j], 0)
+                    GPIO.output(self.col[j], 0)
 
                     for i in range(4):
-                        if GPIO.input(row[i]) == 0:
-                            print(matrix[i][j])
+                        if GPIO.input(self.row[i]) == 0:
+                            print(self.matrix[i][j])
                             #do stuff
-                            while(GPIO.input(row[i]) == 0):
+                            while(GPIO.input(self.row[i]) == 0):
                                 pass
 
-                    GPIO.output(col[j], 1)
+                    GPIO.output(self.col[j], 1)
 
 
         except KeyboardInterrupt:
