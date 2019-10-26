@@ -7,6 +7,7 @@ class NumPad:
     matrix = None
     row = None
     col = None
+    code = None
 
     def __init__(self):
         #use RPi.GPIO Layout
@@ -28,6 +29,7 @@ class NumPad:
             GPIO.setup(self.row[i], GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
     def check(self):
+        print("num_pad_checker running")
         try:
             while(True):
                 for j in range(4):
@@ -35,8 +37,16 @@ class NumPad:
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
                             while(GPIO.input(self.row[i]) == 0):
-                                #hier muss alles
-                                pass
+                                if matrix[i][j] == 'D':
+                                    self.run_code()
+                                else:
+                                    self.code += str(self.matrix[i][j])
+
+                                print(matrix[i][j])
+
                     GPIO.output(self.col[j], 1)
         except KeyboardInterrupt:
             GPIO.cleanup()
+
+    def run_code(self):
+        print(self.code)
