@@ -16,7 +16,8 @@ def runWhileRFID():
     while True:
         try:
             print(3)
-            id, text = reader.read()
+            #id, text = reader.read()
+            id=403741333852
             print(id)
             if sec_serv.auth(str(id),"rfid")==True:
                 if sec_serv.alarmState != AlarmState.DISABLED:
