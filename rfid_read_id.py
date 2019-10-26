@@ -1,21 +1,16 @@
-import RPi.GPIO as GPIO
+def rfid_read_id():
 
-import sys
-sys.path.append('/home/pi/MFRC522-python')
+    import RPi.GPIO as GPIO
 
-from mfrc522 import SimpleMFRC522
+    import sys
+    sys.path.append('/home/pi/MFRC522-python')
 
-reader = SimpleMFRC522()
+    from mfrc522 import SimpleMFRC522
 
-print("Halten Sie ein Clip oder eine Karte an dem Sensor.")
+    reader = SimpleMFRC522()
 
-while True:
-    try:
+    print("Halten Sie ein Clip oder eine Karte an dem Sensor.")
 
-        id, text = reader.read()
+    id, text = reader.read()
 
-        print(id)
-
-    finally:
-
-        GPIO.cleanup()
+    return id
