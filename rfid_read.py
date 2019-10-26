@@ -1,13 +1,15 @@
-import RPi.GPIO as GPIO
 import time
 
 from state_enum import *
 
-import sys
-sys.path.append('/home/pi/MFRC522-python')
-
 def runWhileRFID():
+    import RPi.GPIO as GPIO
+
+    import sys
+    sys.path.append('/home/pi/MFRC522-python')
+
     from __main__ import sec_serv
+    
     from mfrc522 import SimpleMFRC522
     reader = SimpleMFRC522()
 
