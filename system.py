@@ -43,5 +43,5 @@ class SecuritySystem:
         print('test')
 
     def triggerAlarm():
-        gpio_led_thread = threading.Thread(target=gpios.gpio_alarm_LEDs, name="led_thread")
+        gpio_led_thread = threading.Thread(target=gpios.gpio_alarm_LEDs)
         gpio_led_thread.start()
