@@ -12,7 +12,7 @@ def runWhileRFID():
     from __main__ import sec_serv
     reader = SimpleMFRC522()
 
-
+    print(1)
 
     while True:
         try:
