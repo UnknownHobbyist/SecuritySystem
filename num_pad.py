@@ -2,6 +2,11 @@ import __main__
 import RPi.GPIO as GPIO
 from settings import *
 from state_enum import *
+import os
+
+def supply_msg(msg: str):
+    os.popen("espeak " + msg)
+
 
 class NumPad:
 
@@ -39,12 +44,14 @@ class NumPad:
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
                             if self.matrix[i][j] == 'D':
+
                                 self.runCode()
                             elif self.matrix[i][j] == 'A':
                                 self.code += 'A'
                                 self.runCode()
                             elif self.matrix[i][j] == 'B':
-                                self.code = ''
+
+                                self.runCode()
                             else:
                                 self.code += str(self.matrix[i][j])
 
@@ -59,12 +66,17 @@ class NumPad:
 
     def runCode(self):
         from __main__ import sec_serv
-        if self.code[0] == 'A':
-            if sec_serv.alarmState == AlarmState.DISABLED:
-                if len(self.code) == 1:
-                    print('neues passwort bitte')
-                else:
-                    print('das neue passwort ist: ' + self.code[1:])
+        if self.code[len(self.code) - 1] == 'A':
+            if len(self.code) > 1 and self.code[0:self.code[0:len(self.code)-2]] == sec_serv.password:
+                self.code = 'A'
+                print('Bitte gebe nun das neue Passwort ein!')
+            else:
+                print('Das Passwort ist falsch, bitte versuche es erneut')
+        if self.code[0] == 'A' and len(self.code) > 1:
+            print('Neues Passwort ist: ' + self.code[1:len(self.code)-1])
+            sec_serv.changePWD(self.code[1:len(self.code)-1])
+
+            pass
         elif self.code[0] == 'B':
 
             pass
