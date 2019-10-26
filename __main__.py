@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import thread
+import threading
 from settings import *
 
 sec_serv = None
