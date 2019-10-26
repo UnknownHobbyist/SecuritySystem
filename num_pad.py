@@ -8,7 +8,7 @@ class NumPad:
     matrix = None
     row = None
     col = None
-    code = None
+    code = ''
 
     def __init__(self):
         #use RPi.GPIO Layout
@@ -39,13 +39,15 @@ class NumPad:
                         if GPIO.input(self.row[i]) == 0:
                             while(GPIO.input(self.row[i]) == 0):
                                 if self.matrix[i][j] == 'D':
-                                    self.run_code()
+                                    self.runCode()
                                 elif self.matrix[i][j] == 'A':
-                                    self.run_code()
+                                    self.code += 'A'
+                                    self.runCode()
                                 elif self.matrix[i][j] == 'B':
                                     self.code = ''
                                 else:
                                     self.code += str(self.matrix[i][j])
+
 
                                 print(self.matrix[i][j])
 
@@ -53,7 +55,7 @@ class NumPad:
         except KeyboardInterrupt:
             GPIO.cleanup()
 
-    def run_code(self):
+    def runCode(self):
         from __main__ import sec_serv
         if self.code[0] == 'A':
             if sec_serv.alarmState == AlarmState.DISABLED and len(self.code) == 1:
