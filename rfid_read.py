@@ -6,18 +6,15 @@ def runWhileRFID():
     import RPi.GPIO as GPIO
 
     import sys
-    sys.path.append('/home/pi/MFRC522-python')
+    sys.path.append('/home/pi/SecuritySystem/MFRC522-python')
 
     from __main__ import sec_serv
 
-    from mfrc522 import SimpleMFRC522
-    reader = SimpleMFRC522()
+
 
     while True:
         try:
             print(3)
-            id, text = reader.read()
-            print(id)
             if sec_serv.auth(str(id),"rfid")==True:
                 if sec_serv.alarmState != AlarmState.DISABLED:
                     sec_serv.changeAlarm(AlarmState.DISABLED)
@@ -30,8 +27,6 @@ def runWhileRFID():
             else:
                 print("access denied")
                 time.sleep(2)
-        except:
-            pass
 
         finally:
             pass
