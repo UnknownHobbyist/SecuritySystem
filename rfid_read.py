@@ -30,8 +30,10 @@ def runWhileRFID():
             else:
                 print("access denied")
                 time.sleep(2)
-        except:
-            pass
+        except KeyboardInterrupt:
+            GPIO.output(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.LOW)
+            GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
+            GPIO.cleanup()
 
         finally:
             pass
