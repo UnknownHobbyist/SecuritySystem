@@ -1,6 +1,6 @@
 import __main__
 import json
-import state_enum
+from state_enum import *
 import gpio_service as gpios
 
 from json_service import JsonService
@@ -23,7 +23,7 @@ class SecuritySystem:
     #
     # Changes the state of the alarm
     #
-    def changeAlarm(self, state):
+    def changeAlarm(self, state: AlarmState):
         self.alarmState = state;
 
     #
