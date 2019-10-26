@@ -1,5 +1,6 @@
 import json
 import auth.enum.py
+import gpio_service.py as gpios
 
 from json_service import JSONService
 
@@ -43,27 +44,11 @@ class SecuritySystem:
             return False
 
     def changePWD(pwd: str):
-
+        print('test')
 
     def changeRFID(rfid: str):
-
-
+        print('test')
 
     def triggerAlarm():
-
-        #
-        # Multi-Threading for sound and light
-        # testing
-        #
-
-        #light
-        led = LED(17)
-        led.on()
-        sleep(1)
-        led.off();
-
-        #sound
-        soundBox = TonalBuzzer(17)
-        soundBox.play(Tone(60))
-        sleep(1)
-        soundBox.stop()
+        gpio_led_thread = threading.Thread(target=gpios.gpio_alarm_LEDs, name="led_thread")
+        gpio_led_thread.start()
