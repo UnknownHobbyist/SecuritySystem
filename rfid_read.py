@@ -6,7 +6,7 @@ def runWhileRFID():
     import RPi.GPIO as GPIO
 
     import sys
-    sys.path.append('/home/pi/MFRC522-python')
+    sys.path.append('/home/pi/SecuritySystem/MFRC522-python')
 
     from __main__ import sec_serv
 
@@ -30,10 +30,6 @@ def runWhileRFID():
             else:
                 print("access denied")
                 time.sleep(2)
-        except KeyboardInterrupt:
-            GPIO.output(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.LOW)
-            GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
-            GPIO.cleanup()
 
         finally:
             pass
