@@ -3,16 +3,16 @@ import threading
 from settings import *
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     import system
     import num_pad
     import rfid_read as rr
 
-    #use RPi.GPIO Layout
+    # use RPi.GPIO Layout
     GPIO.setmode(GPIO.BCM)
 
-    #setup for Output Pins
+    # setup for Output Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.OUT)
     GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
 

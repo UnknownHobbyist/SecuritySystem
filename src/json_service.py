@@ -1,7 +1,8 @@
 import json
 
+
 class JsonService:
-    #method for getting json.json file
+    # method for getting json.json file
     @staticmethod
     def getJson() -> dict:
         file = open('../rsc/login_data.json')
@@ -9,7 +10,7 @@ class JsonService:
         file.close()
         return json_file
 
-    #method for changing json.json values
+    # method for changing json.json values
     @staticmethod
     def setJson(j:dict):
         file = open('../rsc/login_data.json',"w")

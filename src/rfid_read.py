@@ -1,12 +1,11 @@
-import time
-
 from state_enum import *
 
 def rfid_checker():
 
     import RPi.GPIO as GPIO
     import sys
-    sys.path.append('/home/pi/MFRC522-python')
+
+    sys.path.append("/home/pi/MFRC522-python")
 
     from __main__ import sec_serv
     from mfrc522 import SimpleMFRC522
