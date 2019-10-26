@@ -30,9 +30,9 @@ if __name__ == '__main__':
 
     #sec_serv.triggerAlarm()
     # checks if someone inputs something over the membrane pad
-    self.num_pad = num_pad.NumPad();
-    self.num_pad_checker = threading.Thread(target=num_pad.check)
-    self.num_pad_checker.start()
+    num_pad = num_pad.NumPad();
+    num_pad_checker = threading.Thread(target=num_pad.check)
+    num_pad_checker.start()
 
     try:
         num_pad_checker.join()
