@@ -20,11 +20,11 @@ class NumPad:
         self.col = [12, 16, 18, 22]
 
         for j in range(4):
-            GPIO.setup(col[j], GPIO.OUT)
-            GPIO.output(col[j], 1)
+            GPIO.setup(self.col[j], GPIO.OUT)
+            GPIO.output(self.col[j], 1)
 
         for i in range(4):
-            GPIO.setup(row[i], GPIO.IN, pull_up_down = GPIO.PUD_UP)
+            GPIO.setup(self.row[i], GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
     def check(self):
 
