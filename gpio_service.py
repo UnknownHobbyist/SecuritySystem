@@ -6,8 +6,7 @@ from settings import *
 #Activating Alarm LEDs
 def gpioAlarmLEDs():
     from __main__ import sec_serv
-    print('led thread')
-    while __main__.sec_serv.alarmState == se.AlarmState.RUNNING:
+    while sec_serv.alarmState == se.AlarmState.RUNNING:
         GPIO.output(GPIO_SETTINGS['ALARM_CHANGER'], GPIO.HIGH)
         time.sleep(0.5)
         GPIO.output(GPIO_SETTINGS['ALARM_CHANGER'], GPIO.LOW)
@@ -15,7 +14,6 @@ def gpioAlarmLEDs():
 
 def handleAlarmSignal(thread):
     from __main__ import sec_serv
-    time.sleep(1.5)
     print(GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]))
     #if GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
     sec_serv.triggerAlarm()
