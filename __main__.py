@@ -29,4 +29,9 @@ if __name__ == '__main__':
     num_pad = num_pad.NumPad();
     num_pad_checker = threading.Thread(target=num_pad.check)
     num_pad_checker.start()
-    num_pad_checker.join()
+
+    try:
+        num_pad_checker.join()
+    except KeyboardInterrupt:
+        gpio.cleanup()
+    

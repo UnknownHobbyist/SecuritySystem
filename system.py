@@ -44,3 +44,6 @@ class SecuritySystem:
         gpio_led_thread.start()
 
         gpios.runAlarmSound()
+
+    def freePorts():
+        gpio.cleanup()
