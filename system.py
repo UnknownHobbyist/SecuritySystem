@@ -6,6 +6,7 @@ import threading
 from json_service import JsonService
 from time import sleep
 from state_enum import *
+import rfid_read as rr
 
 class SecuritySystem:
 
@@ -52,4 +53,8 @@ class SecuritySystem:
     def freePorts(self):
         gpio.cleanup()
     def setup(self):
+        rfid_fred = threading.Thread(target=rr.runWhileRFID)
+        rfid_fred.start()
+        # 1000 POINTS, pls!
+
         gpios.setup()
