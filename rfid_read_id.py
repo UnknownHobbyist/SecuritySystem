@@ -9,8 +9,6 @@ def rfid_read_id():
 
     reader = SimpleMFRC522()
 
-    print("Halten Sie ein Clip oder eine Karte an dem Sensor.")
-
     id, text = reader.read()
 
     return id

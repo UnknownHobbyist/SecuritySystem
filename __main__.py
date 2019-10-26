@@ -13,7 +13,7 @@ if __name__ == '__main__':
     print(rfid_read_id.rfid_read_id())
 
     #use RPi.GPIO Layout
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
 
     #setup for Output Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.OUT)

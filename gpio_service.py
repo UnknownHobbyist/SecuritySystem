@@ -19,7 +19,7 @@ def handleAlarmSignal(thread):
 
 def setup():
     from __main__ import sec_serv
-    GPIO.setmode(GPIO.BOARD);
+    GPIO.setmode(GPIO.BCM);
 
     #setup for Output Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.OUT)
