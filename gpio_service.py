@@ -1,6 +1,6 @@
 import time
 import RPi.GPIO as GPIO
-import __main__
+from main import *
 import state_enum as se
 from settings import *
 
@@ -16,7 +16,7 @@ def handleAlarmSignal(thread):
     time.sleep(1.5)
     print(GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]))
     #if GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
-    __main__.sec_serv.triggerAlarm()
+    sec_serv.triggerAlarm()
 
 def runAlarmSound():
     GPIO.output(GPIO_SETTINGS['ALARM_SOURCE'], GPIO.HIGH)
