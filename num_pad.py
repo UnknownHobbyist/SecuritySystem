@@ -26,25 +26,25 @@ class NumPad:
         for i in range(4):
             GPIO.setup(row[i], GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
-def check():
+    def check():
 
-    try:
-        while(True):
-            print('stuff')
-            #do stuff
+        try:
+            while(True):
+                print('stuff')
+                #do stuff
 
-            for j in range(4):
-                GPIO.output(col[j], 0)
+                for j in range(4):
+                    GPIO.output(col[j], 0)
 
-                for i in range(4):
-                    if GPIO.input(row[i]) == 0:
-                        print(matrix[i][j])
-                        #do stuff
-                        while(GPIO.input(row[i]) == 0):
-                            pass
+                    for i in range(4):
+                        if GPIO.input(row[i]) == 0:
+                            print(matrix[i][j])
+                            #do stuff
+                            while(GPIO.input(row[i]) == 0):
+                                pass
 
-                GPIO.output(col[j], 1)
+                    GPIO.output(col[j], 1)
 
 
-    except KeyboardInterrupt:
-        GPIO.cleanup()
+        except KeyboardInterrupt:
+            GPIO.cleanup()
