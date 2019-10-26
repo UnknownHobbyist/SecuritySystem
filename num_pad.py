@@ -16,8 +16,8 @@ class NumPad:
                         [7, 8, 9, 'C'],
                         ['*', 0, '#', 'D'] ]
 
-        row = [7, 11, 13, 15]
-        col = [12, 16, 18, 22]
+        self.row = [7, 11, 13, 15]
+        self.col = [12, 16, 18, 22]
 
         for j in range(4):
             GPIO.setup(col[j], GPIO.OUT)
@@ -32,9 +32,6 @@ class NumPad:
 
         try:
             while(True):
-                print('stuff')
-                #do stuff
-
                 for j in range(4):
                     GPIO.output(self.col[j], 0)
 
