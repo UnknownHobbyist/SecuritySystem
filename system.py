@@ -2,7 +2,7 @@ import json
 import state_enum
 import gpio_service as gpios
 
-from json_service import JSONService
+from json_service import JsonService
 
 #gpio imports
 #will be removed later
@@ -42,7 +42,7 @@ class SecuritySystem:
             return True
         else:
             return False
-    
+
     def changePWD(pwd: str):
         print('test')
 
