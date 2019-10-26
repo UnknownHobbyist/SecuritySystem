@@ -10,7 +10,7 @@ class NumPad:
 
     def __init__(self):
         #use RPi.GPIO Layout
-        #GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BOARD)
 
         self.matrix = [ [1, 2, 3, 'A'],
                         [4, 5, 6, 'B'],
