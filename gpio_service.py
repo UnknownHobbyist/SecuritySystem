@@ -15,9 +15,9 @@ def gpioAlarmLEDs():
 def handleAlarmSignal(thread):
     time.sleep(1.5)
     print(GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]))
-    if GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
-        __main__.sec_serv.triggerAlarm()
-        
+    #if GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
+    __main__.sec_serv.triggerAlarm()
+
 def runAlarmSound():
     GPIO.output(GPIO_SETTINGS['ALARM_SOURCE'], GPIO.HIGH)
 
