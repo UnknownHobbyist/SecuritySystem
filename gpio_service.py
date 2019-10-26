@@ -18,4 +18,4 @@ def handleAlarmSignal():
             __main__.sec_serv.triggerAlarm()
 
 #GPIO.setmode(GPIO.BCM);
-GPIO.add_event_detect(settings.GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.RISING, callback= handleAlarmSignal, bouncetime=300)
+#GPIO.add_event_detect(settings.GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.RISING, callback= handleAlarmSignal, bouncetime=300)
