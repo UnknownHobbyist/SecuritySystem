@@ -15,7 +15,7 @@ print("Halten Sie ein Clip oder eine Karte an dem Sensor.")
 while True:
     try:
         id, text = reader.read()
-        if sec_serv.auth(id,"rfid")==True:
+        if sec_serv.auth(str(id),"rfid")==True:
             print("access granted")
         else:
             print("access denied")
