@@ -3,6 +3,8 @@ import __main__
 import system
 import time
 
+from state_enum import *
+
 import sys
 sys.path.append('/home/pi/MFRC522-python')
 
@@ -18,7 +20,7 @@ while True:
         id, text = reader.read()
         if sec_serv.auth(str(id),"rfid")==True:
             if sec_serv.alarmState != AlarmState.DISABLED:
-                sec_serv.changeAlarm(Alarmstate.DISABLED)
+                sec_serv.changeAlarm(AlarmState.DISABLED)
             else:
                 sec_serv.changeAlarm(AlarmState.ARMED)
             print("Security system "+str(sec_serv.alarmState))

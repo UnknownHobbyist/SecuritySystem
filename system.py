@@ -63,5 +63,4 @@ class SecuritySystem:
         if alarmState.RUNNING:
 
             self.gpio_led_thread.kill()
-
-        pass
+            GPIO.output(GPIO_SETTINGS['ALARM_SOURCE'], GPIO.LOW)
