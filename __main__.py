@@ -18,7 +18,9 @@ if __name__ == '__main__':
 
     #setup for Output Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.OUT)
-    #GPIO.setup(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.OUT)
+
+    sleep(2)
+    GPIO.setup(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.OUT)
 
 
     #setup for Input Pins
