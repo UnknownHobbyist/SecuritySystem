@@ -9,11 +9,15 @@ from state_enum import *
 
 class SecuritySystem:
 
+    num_pad = None
+    num_pad_checker = None
+
+
     def __init__(self):
 
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
-
+        self.gpio_led_thread = None
 
 
     #
@@ -44,8 +48,8 @@ class SecuritySystem:
             return
 
         self.alarmState = AlarmState.RUNNING
-        gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
-        gpio_led_thread.start()
+        self.gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
+        self.gpio_led_thread.start()
 
         gpios.runAlarmSound()
 
@@ -53,3 +57,11 @@ class SecuritySystem:
         gpio.cleanup()
     def setup(self):
         gpios.setup()
+
+    def stopAlarm():
+
+        if alarmState.RUNNING:
+
+            self.gpio_led_thread.kill()
+
+        pass
