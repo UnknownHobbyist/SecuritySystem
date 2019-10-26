@@ -13,6 +13,7 @@ class NumPad:
     def __init__(self):
         #use RPi.GPIO Layout
         GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
 
         self.matrix = [ [1, 2, 3, 'A'],
                         [4, 5, 6, 'B'],
@@ -62,7 +63,7 @@ class NumPad:
             if sec_serv.alarmState == AlarmState.DISABLED:
                 if len(self.code) == 1:
                     print('neues passwort bitte')
-                elif sec_serv.alarmState == AlarmState.DISABLED:
+                else:
                     print('das neue passwort ist: ' + self.code[1:])
         elif self.code[0] == 'B':
 
