@@ -2,7 +2,7 @@ import time
 import RPi.GPIO as GPIO
 import __main__
 import state_enum as se
-import settings
+from settings import *
 
 #Activating Alarm LEDs
 def gpioAlarmLEDs():
@@ -25,4 +25,4 @@ GPIO.setup(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.OUT)
 #setup for Input Pins
 GPIO.setup(GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.IN,  pull_up_down=GPIO.PUD_DOWN)
 
-GPIO.add_event_detect(settings.GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.RISING, callback= handleAlarmSignal, bouncetime=300)
+GPIO.add_event_detect(GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.RISING, callback= handleAlarmSignal, bouncetime=300)
