@@ -14,7 +14,7 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
 
-        gpios.setup()
+
 
     #
     # Changes the state of the alarm
@@ -52,5 +52,7 @@ class SecuritySystem:
 
         gpios.runAlarmSound()
 
-    def freePorts():
+    def freePorts(self):
         gpio.cleanup()
+    def setup(self):
+        gpios.setup()

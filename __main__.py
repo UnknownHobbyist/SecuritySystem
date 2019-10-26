@@ -27,6 +27,7 @@ if __name__ == '__main__':
     GPIO.setwarnings(False);
 
     sec_serv = system.SecuritySystem()
+    sec_serv.setup()
 
     #sec_serv.triggerAlarm()
 
