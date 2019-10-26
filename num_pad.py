@@ -59,10 +59,11 @@ class NumPad:
     def runCode(self):
         from __main__ import sec_serv
         if self.code[0] == 'A':
-            if sec_serv.alarmState == AlarmState.DISABLED and len(self.code) == 1:
-                print('neues passwort bitte')
-            else:
-                print('das neue passwort ist: ' + self.code[1:])
+            if sec_serv.alarmState == AlarmState.DISABLED:
+                if len(self.code) == 1:
+                    print('neues passwort bitte')
+                elif sec_serv.alarmState == AlarmState.DISABLED:
+                    print('das neue passwort ist: ' + self.code[1:])
         elif self.code[0] == 'B':
 
             pass
