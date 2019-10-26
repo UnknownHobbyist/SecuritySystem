@@ -24,7 +24,7 @@ class SecuritySystem:
     # authType {"rfid", "pwd"}
     #
     def auth(self, authCode: str, authType: str)->bool:
-        jsonFile = JsonService.getJSON()
+        jsonFile = JsonService.getJson()
 
         if authCode == jsonFile[authType]:
             return True
@@ -38,8 +38,6 @@ class SecuritySystem:
         print('test')
 
     def triggerAlarm(self):
-
-
         if self.alarmState.RUNNING:
             return
 
