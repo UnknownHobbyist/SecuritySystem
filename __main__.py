@@ -6,3 +6,4 @@ if __name__ == '__main__':
     GPIO.setmode(GPIO.BOARD)
 
     GPIO.setup(GPIO_SETIINGS["ALARM_CHANGER"], GPIO.OUT)
+    GPIO.setup(GPIO_SETIINGS["ALARM_SIGNAL"], GPIO.IN)
