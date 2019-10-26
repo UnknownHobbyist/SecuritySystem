@@ -1,11 +1,12 @@
 import time
 import RPi.GPIO as GPIO
-from __main__ import *
 import state_enum as se
 from settings import *
 
 #Activating Alarm LEDs
 def gpioAlarmLEDs():
+    from __main__ import sec_serv
+    print('led thread')
     while __main__.sec_serv.alarmState == se.AlarmState.RUNNING:
         GPIO.output(GPIO_SETTINGS['ALARM_CHANGER'], GPIO.HIGH)
         time.sleep(0.5)
@@ -13,6 +14,7 @@ def gpioAlarmLEDs():
         time.sleep(0.5)
 
 def handleAlarmSignal(thread):
+    from __main__ import sec_serv
     time.sleep(1.5)
     print(GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]))
     #if GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
@@ -22,6 +24,7 @@ def runAlarmSound():
     GPIO.output(GPIO_SETTINGS['ALARM_SOURCE'], GPIO.HIGH)
 
 def setup():
+    from __main__ import sec_serv
     GPIO.setmode(GPIO.BOARD);
 
     #setup for Output Pins
