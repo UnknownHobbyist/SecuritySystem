@@ -1,6 +1,6 @@
 import time
 import RPi.GPIO as GPIO
-from main import *
+from __main__ import *
 import state_enum as se
 from settings import *
 
