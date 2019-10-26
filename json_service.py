@@ -1,6 +1,6 @@
 import json
 
-class JSONSERVICE:
+class JsonService:
     #method for getting json.json file
     @staticmethod
     def getJson() -> dict:
