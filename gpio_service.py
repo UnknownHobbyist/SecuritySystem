@@ -2,7 +2,6 @@ import time
 import RPi.GPIO as GPIO
 import state_enum as se
 from settings import *
-from pygame import mixer
 
 #Activating Alarm LEDs
 def gpioAlarmLEDs():
@@ -17,11 +16,6 @@ def handleAlarmSignal(thread):
     from __main__ import sec_serv
     #if GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
     sec_serv.triggerAlarm()
-
-def runAlarmSound():
-    from __main__ import sec_serv
-    #GPIO.output(GPIO_SETTINGS['ALARM_SOURCE'], GPIO.HIGH)
-    sec_serve.sound_obj.music.play()
 
 def setup():
     from __main__ import sec_serv
