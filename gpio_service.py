@@ -17,4 +17,5 @@ def handleAlarmSignal():
     if GPIO.input(GPIO_SETIINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
             __main__.sec_serv.triggerAlarm()
 
+GPIO.setmode(GPIO.BCM);
 GPIO.add_event_detect(settings.GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.RISING, callback= handleAlarmSignal, bouncetime=300)
