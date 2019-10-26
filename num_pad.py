@@ -28,6 +28,8 @@ class NumPad:
 
     def check():
 
+        print('running')
+
         try:
             while(True):
                 print('stuff')
