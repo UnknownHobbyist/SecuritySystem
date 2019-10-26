@@ -24,7 +24,7 @@ if __name__ == '__main__':
     GPIO.setup(GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.IN,  pull_up_down=GPIO.PUD_DOWN)
 
     #disables warnings
-#    GPIO.setwarnings(False);
+    GPIO.setwarnings(False);
 
     sec_serv = system.SecuritySystem()
     sec_serv.setup()
