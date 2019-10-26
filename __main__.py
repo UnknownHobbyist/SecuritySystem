@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import settings
+from settings import *
 
 sec_serv = None
 
