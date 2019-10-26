@@ -1,13 +1,10 @@
-import __main__
-import json
 import gpio_service as gpios
-import rfid_read as rr
 import threading
 import vlc
 
 from json_service import JsonService
-from time import sleep
 from state_enum import *
+
 
 class SecuritySystem:
 
@@ -23,9 +20,9 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
 
-        #self.vlc_inst = vlc.Instance('--input-repeat=999999')
-        #self.sound_obj = self.vlc_inst.media_player_new()
-        #self.sound_obj.set_media("./sounds/alarm.mp3")
+        # self.vlc_inst = vlc.Instance('--input-repeat=999999')
+        # self.sound_obj = self.vlc_inst.media_player_new()
+        # self.sound_obj.set_media("./sounds/alarm.mp3")
         self.password = JsonService.getJson()["pwd"]
         self.rfid = JsonService.getJson()["rfid"]
 
@@ -33,12 +30,12 @@ class SecuritySystem:
     # Changes the state of the alarm
     #
     def changeAlarm(self, state: AlarmState):
-        self.alarmState = state;
+        self.alarmState = state
 
     #
     # authType {"rfid", "pwd"}
     #
-    def auth(self, authCode: str, authType: str)->bool:
+    def auth(self, authCode: str, authType: str) -> bool:
         jsonFile = JsonService.getJson()
 
         if authCode == jsonFile[authType]:
@@ -47,10 +44,10 @@ class SecuritySystem:
             return False
 
     def changePWD(self, pwd: str):
-        print('test')
+        print("test")
 
     def changeRFID(self, rfid: str):
-        print('test')
+        print("test")
 
     def triggerAlarm(self):
         if self.alarmState == AlarmState.RUNNING:
@@ -60,9 +57,8 @@ class SecuritySystem:
         self.gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
         self.gpio_led_thread.start()
 
-        #hierfür müsste möglicherweise ein neuer thread gestartet werden
-        #self.sound_obj.play()
-
+        # hierfür müsste möglicherweise ein neuer thread gestartet werden
+        # self.sound_obj.play()
 
     def freePorts(self):
         gpio.cleanup()
@@ -74,4 +70,4 @@ class SecuritySystem:
     def stopAlarm(self):
         if self.alarmState != AlarmState.RUNNING:
             self.gpio_led_thread.kill()
-            #self.sound_obj.stop();
+            # self.sound_obj.stop();
