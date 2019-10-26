@@ -22,6 +22,8 @@ class SecuritySystem:
         self.alarmState = AlarmState.DISABLED
 
         self.sound_obj = vlc.MediaPlayer("./sounds/alarm.mp3")
+        self.sound_obj.Instance('--input-repeat=-1', '--no-video-title-show', '--fullscreen', '--mouse-hide-timeout=0')
+
 
     #
     # Changes the state of the alarm
@@ -56,6 +58,7 @@ class SecuritySystem:
 
         #hierfür müsste möglicherweise ein neuer thread gestartet werden
         self.sound_obj.play()
+
 
     def freePorts(self):
         gpio.cleanup()
