@@ -23,13 +23,13 @@ class SecuritySystem:
     #
     # Changes the state of the alarm
     #
-    def changeAlarm():
-        alarmState = not alarmArmed
+    def changeAlarm(self, state: AlarmState):
+        self.alarmState = state;
 
     #
     # authType {"rfid", "pwd"}
     #
-    def auth(authCode: str, authType: str)->bool:
+    def auth(self, authCode: str, authType: str)->bool:
         jsonFile = JSONService.getJSON()
 
         if authCode == jsonFile[authType]:
@@ -37,12 +37,12 @@ class SecuritySystem:
         else:
             return False
 
-    def changePWD(pwd: str):
+    def changePWD(self, pwd: str):
         print('test')
 
-    def changeRFID(rfid: str):
+    def changeRFID(self, rfid: str):
         print('test')
 
-    def triggerAlarm():
+    def triggerAlarm(self):
         gpio_led_thread = threading.Thread(target=gpios.gpio_alarm_LEDs)
         gpio_led_thread.start()
