@@ -11,12 +11,13 @@ def runWhileRFID():
 
     from __main__ import sec_serv
 
-    from rfid_read_id import rfid_read_id
+    from mfrc522 import SimpleMFRC522
+    reader = SimpleMFRC522()
 
     while True:
         try:
             print(45)
-            id = rfid_read_id()
+            id, text = reader.read()
             print(str(id))
             print(3)
             if sec_serv.auth(str(id),"rfid")==True:

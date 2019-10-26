@@ -72,6 +72,6 @@ class SecuritySystem:
         gpios.setup()
 
     def stopAlarm(self):
-        if alarmState != AlarmState.RUNNING:
+        if self.alarmState != AlarmState.RUNNING:
             self.gpio_led_thread.kill()
             #self.sound_obj.stop();

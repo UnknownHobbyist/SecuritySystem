@@ -8,9 +8,6 @@ if __name__ == '__main__':
     import system
     import num_pad
     import rfid_read as rr
-    import rfid_read_id
-
-#    print(rfid_read_id.rfid_read_id())
 
     #use RPi.GPIO Layout
     GPIO.setmode(GPIO.BCM)
@@ -23,7 +20,7 @@ if __name__ == '__main__':
 
     #setup for Input Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.IN,  pull_up_down=GPIO.PUD_DOWN)
-
+    GPIO.setup(GPIO_SETTINGS["RESET"], GPIO.IN,  pull_up_down=GPIO.PUD_DOWN)
     #disables warnings
     GPIO.setwarnings(False);
 
