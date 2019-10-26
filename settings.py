@@ -5,20 +5,20 @@ GPIO_SETTINGS = {
         "1":7,
         },
     "RFID":{
-        "SDA":16,
-        "SCX":15,
-        "MOST":13,
-        "MIBO":11,
-        "GND":14,
-        "RST":12,
-        "3,3V":17,
+        "SDA":24,
+        "SCK":23,
+        "MOSI":19,
+        "MISO":21,
+        "IRQ":18,
+        "RST":22,
+
     },
 
     "KEYBOARD": {
         "1":35,
         "2":37,
-        "3":18,
-        "4":22,
+        "3":,
+        "4":29,
         "5":32,
         "6":36,
         "7":38,
@@ -26,4 +26,4 @@ GPIO_SETTINGS = {
     }
 }
 
-Hash_Method = "sha265"
+Hash_Method = "sha256"
