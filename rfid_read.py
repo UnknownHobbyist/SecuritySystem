@@ -13,9 +13,7 @@ def runWhileRFID():
     from mfrc522 import SimpleMFRC522
     reader = SimpleMFRC522()
 
-    id, text = reader.read()
-    #id=403741333852
-    print(id)
+    
 
     while True:
         try:

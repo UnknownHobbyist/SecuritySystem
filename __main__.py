@@ -36,6 +36,9 @@ if __name__ == '__main__':
     num_pad_checker.start()
 
     try:
+        id, text = reader.read()
+        #id=403741333852
+        print(id)
         rr.runWhileRFID()
     except KeyboardInterrupt:
         GPIO.output(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.LOW)
