@@ -6,10 +6,9 @@ from state_enum import *
 import sys
 sys.path.append('/home/pi/MFRC522-python')
 
-from mfrc522 import SimpleMFRC522
-
 def runWhileRFID():
     from __main__ import sec_serv
+    from mfrc522 import SimpleMFRC522
     reader = SimpleMFRC522()
 
     print(1)
@@ -30,8 +29,3 @@ def runWhileRFID():
             else:
                 print("access denied")
                 time.sleep(2)
-
-
-        finally:
-
-            GPIO.cleanup()
