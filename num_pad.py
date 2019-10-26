@@ -1,5 +1,6 @@
 import __main__
 import RPi.GPIO as GPIO
+from settings import *
 
 class NumPad:
 
