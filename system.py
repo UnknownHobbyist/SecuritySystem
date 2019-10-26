@@ -13,15 +13,16 @@ class SecuritySystem:
 
     num_pad = None
     num_pad_checker = None
-    sound_obj = mixer
+    #sound_obj = mixer
     gpio_led_thread = None
 
     def __init__(self):
 
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
-        self.sound_obj.init()
-        self.sound_obj.load('sounds/alarm.mp3')
+
+        #self.sound_obj.init()
+        #self.sound_obj.load('sounds/alarm.mp3')
 
     #
     # Changes the state of the alarm
@@ -68,4 +69,4 @@ class SecuritySystem:
     def stopAlarm(self):
         if alarmState != AlarmState.RUNNING:
             self.gpio_led_thread.kill()
-            self.sound_obj.stop();
+            #self.sound_obj.stop();
