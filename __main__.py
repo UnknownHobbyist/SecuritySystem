@@ -18,9 +18,10 @@ if __name__ == '__main__':
 
     #setup for Output Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.OUT)
-
-    sleep(2)
     GPIO.setup(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.OUT)
+
+    GPIO.output(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.LOW)
+    GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
 
 
     #setup for Input Pins
@@ -42,4 +43,6 @@ if __name__ == '__main__':
     try:
         num_pad_checker.join()
     except KeyboardInterrupt:
+        GPIO.output(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.LOW)
+        GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
         GPIO.cleanup()
