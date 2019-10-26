@@ -2,12 +2,13 @@ import RPi.GPIO as GPIO
 import __main__
 import system
 import time
-from __main__ import sec_serv
+#from __main__ import sec_serv
 
 import sys
 sys.path.append('/home/pi/MFRC522-python')
 
 from mfrc522 import SimpleMFRC522
+sec_serv= system.SecuritySystem()
 
 reader = SimpleMFRC522()
 
