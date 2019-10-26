@@ -1,4 +1,5 @@
 import __main__
+import RPi.GPIO as GPIO
 
 class NumPad:
 
