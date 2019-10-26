@@ -7,7 +7,7 @@ sys.path.append('/home/pi/MFRC522-python')
 
 from mfrc522 import SimpleMFRC522
 
-sec_serv = SecuritySystem()
+sec_serv = system.SecuritySystem()
 reader = SimpleMFRC522()
 
 print("Halten Sie ein Clip oder eine Karte an dem Sensor.")
