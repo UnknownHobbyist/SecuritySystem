@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 import threading
 from settings import *
 
-sec_serv = None
 
 if __name__ == '__main__':
 
