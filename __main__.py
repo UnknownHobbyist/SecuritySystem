@@ -33,5 +33,4 @@ if __name__ == '__main__':
     try:
         num_pad_checker.join()
     except KeyboardInterrupt:
-        gpio.cleanup()
-    
+        GPIO.cleanup()
