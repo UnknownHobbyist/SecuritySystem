@@ -41,9 +41,8 @@ class NumPad:
                                 else:
                                     self.code += str(self.matrix[i][j])
 
+                                print(matrix[i][j])
 
-
-                                pass
                     GPIO.output(self.col[j], 1)
         except KeyboardInterrupt:
             GPIO.cleanup()
