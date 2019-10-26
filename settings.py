@@ -3,6 +3,7 @@ GPIO_SETTINGS = {
     "ALARM_SIGNAL": {
         "1": 4,
         },
+    "RESET": 13,
     "RFID":{
         "SDA": 8,
         "SCK": 11,

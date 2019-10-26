@@ -17,6 +17,10 @@ def handleAlarmSignal(thread):
     #if GPIO.input(GPIO_SETTINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
     sec_serv.triggerAlarm()
 
+def handleResetSignal(thread):
+    from __main__ import sec_serv
+    sec_serv.stopAlarm()
+
 def setup():
     from __main__ import sec_serv
     GPIO.setmode(GPIO.BCM);
@@ -26,5 +30,7 @@ def setup():
 
     #setup for Input Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.IN,  pull_up_down=GPIO.PUD_DOWN)
+    GPIO.setup(GPIO_SETTINGS["RESET"], GPIO.IN,  pull_up_down=GPIO.PUD_DOWN)
 
     GPIO.add_event_detect(GPIO_SETTINGS["ALARM_SIGNAL"]["1"], GPIO.RISING, callback= handleAlarmSignal, bouncetime=300)
+    GPIO.add_event_detect(GPIO_SETTINGS["RESET"], GPIO.RISING, callback= handleResetSignal, bouncetime=300)
