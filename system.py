@@ -15,6 +15,8 @@ class SecuritySystem:
     num_pad_checker = None
     sound_obj = None
     gpio_led_thread = None
+    password = None
+    rfid = None
 
     def __init__(self):
 
@@ -24,7 +26,8 @@ class SecuritySystem:
         #self.vlc_inst = vlc.Instance('--input-repeat=999999')
         #self.sound_obj = self.vlc_inst.media_player_new()
         #self.sound_obj.set_media("./sounds/alarm.mp3")
-
+        self.password = JsonService.getJson()["pwd"]
+        self.rfid = JsonService.getJson()["rfid"]
 
     #
     # Changes the state of the alarm

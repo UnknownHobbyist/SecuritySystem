@@ -1,6 +1,7 @@
 import __main__
 import RPi.GPIO as GPIO
 from settings import *
+from state_enum import *
 
 class NumPad:
 
@@ -39,6 +40,10 @@ class NumPad:
                             while(GPIO.input(self.row[i]) == 0):
                                 if matrix[i][j] == 'D':
                                     self.run_code()
+                                elif matrix[i][j] == 'A':
+                                    self.run_code()
+                                elif matrix[i][j] == 'B':
+                                    self.code = ''
                                 else:
                                     self.code += str(self.matrix[i][j])
 
@@ -49,4 +54,18 @@ class NumPad:
             GPIO.cleanup()
 
     def run_code(self):
-        print(self.code)
+        from main import sec_serv
+        if self.code[0] == 'A':
+            if sec_serv.alarmState == AlarmState.DISABLED and len(self.code) == 1:
+                print('neues passwort bitte')
+            else:
+                print('das neue passwort ist: ' + self.code[1:])
+        elif self.code[0] == 'B':
+
+            pass
+        elif self.code[0] == 'C':
+
+            pass
+        else:
+            if sec_serv.alarmState == not AlarmState.DISABLED and self.code == sec_serv.password:
+                sec_serv.alarmState = AlarmState.DISABLED
