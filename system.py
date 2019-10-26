@@ -58,7 +58,7 @@ class SecuritySystem:
     def setup(self):
         gpios.setup()
 
-    def stopAlarm(self):
+    def stopAlarm():
 
         if alarmState.RUNNING:
 
