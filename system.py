@@ -14,6 +14,8 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
 
+        gpios.setup()
+
     #
     # Changes the state of the alarm
     #
