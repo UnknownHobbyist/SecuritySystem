@@ -4,6 +4,15 @@ GPIO_SETTINGS = {
     "ALARM_SIGNAL":{
         "1":7,
         },
+    "RFID":{
+        "SDA":16,
+        "SCX":15,
+        "MOST":13,
+        "MIBO":11,
+        "GND":14,
+        "RST":12,
+        "3,3V":17,
+    },
 
     "KEYBOARD": {
         "1":35,
