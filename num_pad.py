@@ -40,3 +40,13 @@ class NumPad:
                     GPIO.output(self.col[j], 1)
         except KeyboardInterrupt:
             GPIO.cleanup()
+
+    def addLiteral(argument):
+
+        switcher = {
+
+            'A' : 
+            'B' : pass
+
+
+        }

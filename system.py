@@ -60,7 +60,6 @@ class SecuritySystem:
 
     def stopAlarm(self):
 
-        if alarmState.RUNNING:
-
+        if alarmState not AlarmState.RUNNING:
             self.gpio_led_thread.kill()
             GPIO.output(GPIO_SETTINGS['ALARM_SOURCE'], GPIO.LOW)
