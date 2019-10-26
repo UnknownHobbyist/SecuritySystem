@@ -38,16 +38,16 @@ class NumPad:
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
                             while(GPIO.input(self.row[i]) == 0):
-                                if matrix[i][j] == 'D':
+                                if self.matrix[i][j] == 'D':
                                     self.run_code()
-                                elif matrix[i][j] == 'A':
+                                elif self.matrix[i][j] == 'A':
                                     self.run_code()
-                                elif matrix[i][j] == 'B':
+                                elif self.matrix[i][j] == 'B':
                                     self.code = ''
                                 else:
                                     self.code += str(self.matrix[i][j])
 
-                                print(matrix[i][j])
+                                print(self.matrix[i][j])
 
                     GPIO.output(self.col[j], 1)
         except KeyboardInterrupt:
