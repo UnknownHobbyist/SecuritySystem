@@ -10,7 +10,7 @@ if __name__ == '__main__':
     import rfid_read as rr
     import rfid_read_id
 
-    print(rfid_read_id.rfid_read_id)
+    print(rfid_read_id.rfid_read_id())
 
     #use RPi.GPIO Layout
     GPIO.setmode(GPIO.BOARD)
