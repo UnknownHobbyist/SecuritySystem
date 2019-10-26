@@ -13,13 +13,6 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
 
-        #initializing sound for triggerAlarm
-        self.button_sounds = {
-            Button(2): Sound("samples/drum_tom_mid_hard.wav"),
-            Button(3): Sound("samples/drum_cymbal_open.wav"),
-        }
-
-
     #
     # Changes the state of the alarm
     #
