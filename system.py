@@ -1,5 +1,5 @@
 import json
-import auth.enum.py
+import state.enum.py
 import gpio_service.py as gpios
 
 from json_service import JSONService
@@ -35,7 +35,7 @@ class SecuritySystem:
     #
     # authType {"rfid", "pwd"}
     #
-    def auth(authCode: str, authType: str)-> bool:
+    def auth(authCode: str, authType: str)->bool:
         jsonFile = JSONService.getJSON()
 
         if authCode == jsonFile[authType]:
