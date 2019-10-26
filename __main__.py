@@ -5,7 +5,7 @@ sec_serv = None
 
 if __name__ == '__main__':
     import system
-    from num_pad
+    import num_pad
 
     #use RPi.GPIO Layout
     GPIO.setmode(GPIO.BOARD)
