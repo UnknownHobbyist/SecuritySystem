@@ -50,8 +50,7 @@ class NumPad:
                                 self.code += 'A'
                                 self.runCode()
                             elif self.matrix[i][j] == 'B':
-
-                                self.runCode()
+                                self.code = ''
                             else:
                                 self.code += str(self.matrix[i][j])
 
@@ -66,6 +65,9 @@ class NumPad:
 
     def runCode(self):
         from __main__ import sec_serv
+
+        print(self.code)
+
         if self.code[len(self.code) - 1] == 'A':
             if len(self.code) > 1 and self.code[0:self.code[0:len(self.code)-2]] == sec_serv.password:
                 self.code = 'A'
@@ -77,12 +79,7 @@ class NumPad:
             sec_serv.changePWD(self.code[1:len(self.code)-1])
 
             pass
-        elif self.code[0] == 'B':
-
-            pass
-        elif self.code[0] == 'C':
-
-            pass
+        if self.code[len(self.code)]
         else:
             if sec_serv.alarmState != AlarmState.DISABLED and self.code == sec_serv.password:
                 sec_serv.alarmState = AlarmState.DISABLED
