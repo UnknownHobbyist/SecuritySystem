@@ -35,7 +35,7 @@ class SecuritySystem:
     #
     # authType {"rfid", "pwd"}
     #
-    def auth(authCode: str, authType: str) -> bool:
+    def auth(authCode: str, authType: str)-> bool:
         jsonFile = JSONService.getJSON()
 
         if authCode == jsonFile[authType]:
