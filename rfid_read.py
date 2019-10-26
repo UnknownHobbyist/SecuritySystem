@@ -5,7 +5,7 @@ from state_enum import *
 def runWhileRFID():
     import RPi.GPIO as GPIO
 
-    GPIO.setmode(GPIO.BCM)
+    #GPIO.setmode(GPIO.BCM)
 
     import sys
     sys.path.append('/home/pi/MFRC522-python')
