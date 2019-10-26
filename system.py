@@ -1,7 +1,7 @@
 import __main__
 import json
 import gpio_service as gpios
-
+import rfid_read as rr
 import threading
 
 from pygame import mixer
@@ -13,7 +13,7 @@ class SecuritySystem:
 
     num_pad = None
     num_pad_checker = None
-    sound_obj = None
+    sound_obj = mixer
     gpio_led_thread = None
 
     def __init__(self):
@@ -22,7 +22,6 @@ class SecuritySystem:
         self.alarmState = AlarmState.DISABLED
         self.sound_obj.init()
         self.sound_obj.load('sounds/alarm.mp3')
-
 
     #
     # Changes the state of the alarm
@@ -59,13 +58,14 @@ class SecuritySystem:
 
     def freePorts(self):
         gpio.cleanup()
+
     def setup(self):
-
-
+        rr_fred = threading.Thread(target=rr.runWhileRFID)
+        rr_fred.start()
+        # Give us 100 points PLEASE!
         gpios.setup()
 
     def stopAlarm(self):
-
         if alarmState != AlarmState.RUNNING:
             self.gpio_led_thread.kill()
             self.sound_obj.stop();
