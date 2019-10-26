@@ -26,6 +26,7 @@ if __name__ == '__main__':
     sec_serv.triggerAlarm()
 
     # checks if someone inputs something over the membrane pad
+
     num_pad = num_pad.NumPad();
     num_pad_checker = threading.Thread(target=num_pad.check)
     num_pad_checker.start()
