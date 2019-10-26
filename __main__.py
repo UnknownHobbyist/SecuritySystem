@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     sec_serv = system.SecuritySystem()
 
-    sec_serv.triggerAlarm()
+    #sec_serv.triggerAlarm()
 
     # checks if someone inputs something over the membrane pad
 

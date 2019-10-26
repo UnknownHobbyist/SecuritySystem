@@ -28,7 +28,6 @@ class SecuritySystem:
 
         if authCode == jsonFile[authType]:
             return True
-
         else:
             return False
 
