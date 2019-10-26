@@ -22,6 +22,7 @@ if __name__ == '__main__':
 
     sec_serv = system.SecuritySystem()
 
+    sec_serve.triggerAlarm()
 
     # checks if someone inputs something over the membrane pad
     num_pad = num_pad.NumPad();

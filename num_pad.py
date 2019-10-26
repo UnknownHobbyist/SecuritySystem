@@ -36,8 +36,9 @@ class NumPad:
 
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
-                            print(self.matrix[i][j])
-                            #do stuff
+
+                            
+
                             while(GPIO.input(self.row[i]) == 0):
                                 pass
 
