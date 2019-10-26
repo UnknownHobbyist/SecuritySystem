@@ -67,5 +67,5 @@ class NumPad:
 
             pass
         else:
-            if sec_serv.alarmState == not AlarmState.DISABLED and self.code == sec_serv.password:
+            if sec_serv.alarmState != AlarmState.DISABLED and self.code == sec_serv.password:
                 sec_serv.alarmState = AlarmState.DISABLED
