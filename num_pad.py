@@ -34,10 +34,10 @@ def check():
                 GPIO.output(col[j], 0)
 
                 for i in range(4):
-                    if GPIO.input(row[i]) == 0
+                    if GPIO.input(row[i]) == 0:
                         print matrix[i][j]
                         #do stuff
-                        while(GPIO.input(row[i]) == 0)
+                        while(GPIO.input(row[i]) == 0):
                             pass
 
                 GPIO.output(col[j], 1)
