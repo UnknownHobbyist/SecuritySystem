@@ -13,6 +13,8 @@ def Gpio_Alarm_LEDs():
         time.sleep(0.5)
 
 def Handle_Alarm_Signal():
-    while True:
-        if GPIO.input(GPIO_SETIINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
+    time.sleep(1.5)
+    if GPIO.input(GPIO_SETIINGS["ALARM_SIGNAL"]["1"]) == GPIO.HIGH:
             __main__.sec_serv.triggerAlarm()
+
+GPIO.add_event_detect(GPIO_SETIINGS["ALARM_SIGNAL"]["1"], GPIO.RISING, callback= Handle_Alarm_Signal,)
