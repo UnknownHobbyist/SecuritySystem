@@ -8,14 +8,18 @@ class NumPad:
     col = None
 
     def __init__(self):
+        #use RPi.GPIO Layout
+        GPIO.setmode(GPIO.BOARD)
 
         self.matrix = [ [1, 2, 3, 'A'],
                         [4, 5, 6, 'B'],
                         [7, 8, 9, 'C'],
                         ['*', 0, '#', 'D'] ]
 
-    row = [7, 11, 13, 15]
-    col = [12, 16, 18, 22]
+        row = [7, 11, 13, 15]
+        col = [12, 16, 18, 22]
+
+
 
     for j in range(4):
         GPIO.setup(col[j], GPIO.OUT)
