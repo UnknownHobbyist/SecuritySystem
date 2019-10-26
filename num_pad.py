@@ -29,6 +29,7 @@ class NumPad:
             GPIO.setup(self.row[i], GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
     def check(self):
+        print("num_pad_checker running")
         try:
             while(True):
                 for j in range(4):
