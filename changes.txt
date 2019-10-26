@@ -1,0 +1,3 @@
+Es könnte sein, dass nach dem löschen und verschieben einige Dateien nicht mehr richtig funktionieren, deswegen schreibe ich hier in meiner geistig gesunden Verfassung noch einige Lösungen
+1. mfrc muss als parent folder lib importiert werden
+2. json file wurde umbenannt und verschoben also...
