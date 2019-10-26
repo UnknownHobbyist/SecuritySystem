@@ -11,11 +11,10 @@ def runWhileRFID():
     from mfrc522 import SimpleMFRC522
     reader = SimpleMFRC522()
 
-    print(1)
-
     while True:
-        print(3)
+        print(2)
         id, text = reader.read()
+        print(3)
         if sec_serv.auth(str(id),"rfid")==True:
             if sec_serv.alarmState != AlarmState.DISABLED:
                 sec_serv.changeAlarm(AlarmState.DISABLED)
