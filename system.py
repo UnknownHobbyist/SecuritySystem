@@ -37,7 +37,6 @@ class SecuritySystem:
     def changeRFID(self, rfid: str):
         print('test')
 
-    '''
     def triggerAlarm(self):
         if self.alarmState.RUNNING:
             return
@@ -47,7 +46,6 @@ class SecuritySystem:
         gpio_led_thread.start()
 
         gpios.runAlarmSound()
-    '''
 
     def freePorts():
         gpio.cleanup()
