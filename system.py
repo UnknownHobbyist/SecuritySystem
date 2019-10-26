@@ -3,13 +3,6 @@ import state_enum
 import gpio_service as gpios
 
 from json_service import JsonService
-
-#gpio imports
-#will be removed later
-from gpiozero import TonalBuzzer
-from gpiozero.tones import Tone
-from gpiozero.tones import Tone
-from gpiozero import LED
 from time import sleep
 
 class SecuritySystem:
