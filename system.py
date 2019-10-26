@@ -10,11 +10,15 @@ import rfid_read as rr
 
 class SecuritySystem:
 
+    num_pad = None
+    num_pad_checker = None
+
+
     def __init__(self):
 
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
-
+        self.gpio_led_thread = None
 
 
     #
@@ -45,8 +49,8 @@ class SecuritySystem:
             return
 
         self.alarmState = AlarmState.RUNNING
-        gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
-        gpio_led_thread.start()
+        self.gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
+        self.gpio_led_thread.start()
 
         gpios.runAlarmSound()
 
@@ -58,3 +62,10 @@ class SecuritySystem:
         # 1000 POINTS, pls!
 
         gpios.setup()
+
+    def stopAlarm():
+
+        if alarmState.RUNNING:
+
+            self.gpio_led_thread.kill()
+            GPIO.output(GPIO_SETTINGS['ALARM_SOURCE'], GPIO.LOW)

@@ -28,22 +28,15 @@ class NumPad:
             GPIO.setup(self.row[i], GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
     def check(self):
-
         try:
             while(True):
                 for j in range(4):
                     GPIO.output(self.col[j], 0)
-
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
-
-
-
                             while(GPIO.input(self.row[i]) == 0):
+                                #hier muss alles
                                 pass
-
                     GPIO.output(self.col[j], 1)
-
-
         except KeyboardInterrupt:
             GPIO.cleanup()
