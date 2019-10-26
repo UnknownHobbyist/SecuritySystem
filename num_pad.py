@@ -16,8 +16,8 @@ class NumPad:
                         [7, 8, 9, 'C'],
                         ['*', 0, '#', 'D'] ]
 
-        self.row = [35, 37, 16, 29]
-        self.col = [32, 36, 38, 40]
+        self.row = [GPIO_SETTINGS.KEYBOARD['1'], GPIO_SETTINGS.KEYBOARD['2'], GPIO_SETTINGS.KEYBOARD['3'], GPIO_SETTINGS.KEYBOARD['4']]
+        self.col = [GPIO_SETTINGS.KEYBOARD['5'], GPIO_SETTINGS.KEYBOARD['6'], GPIO_SETTINGS.KEYBOARD['7'], GPIO_SETTINGS.KEYBOARD['8']]
 
         for j in range(4):
             GPIO.setup(self.col[j], GPIO.OUT)
@@ -27,8 +27,6 @@ class NumPad:
             GPIO.setup(self.row[i], GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
     def check(self):
-
-        print('running')
 
         try:
             while(True):
