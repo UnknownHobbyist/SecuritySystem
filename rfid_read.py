@@ -3,6 +3,7 @@ import time
 from state_enum import *
 
 def runWhileRFID():
+
     import RPi.GPIO as GPIO
 
     import sys
@@ -10,14 +11,12 @@ def runWhileRFID():
 
     from __main__ import sec_serv
 
-    from mfrc522 import SimpleMFRC522
-    reader = SimpleMFRC522()
+    from rfid_read_id import rfid_read_id
 
     while True:
         try:
             print(45)
-            id, text = reader.read()
-            #id=403741333852
+            id = rfid_read_id()
             print(str(id))
             print(3)
             if sec_serv.auth(str(id),"rfid")==True:
