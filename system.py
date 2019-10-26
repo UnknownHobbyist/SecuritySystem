@@ -42,7 +42,7 @@ class SecuritySystem:
             return True
         else:
             return False
-
+    
     def changePWD(pwd: str):
         print('test')
 
