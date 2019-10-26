@@ -38,6 +38,11 @@ class SecuritySystem:
         print('test')
 
     def triggerAlarm(self):
+
+
+        if alarmState.RUNNING:
+            return
+
         self.alarmState = AlarmState.RUNNING
         gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
         gpio_led_thread.start()
