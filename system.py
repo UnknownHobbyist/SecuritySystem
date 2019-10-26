@@ -14,6 +14,8 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.alarmState = AlarmState.DISABLED
 
+
+
     #
     # Changes the state of the alarm
     #
@@ -37,17 +39,20 @@ class SecuritySystem:
     def changeRFID(self, rfid: str):
         print('test')
 
-    '''
     def triggerAlarm(self):
         if self.alarmState.RUNNING:
+            print('running')
             return
+
+        print("startet")
 
         self.alarmState = AlarmState.RUNNING
         gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
         gpio_led_thread.start()
 
         gpios.runAlarmSound()
-    '''
 
-    def freePorts():
+    def freePorts(self):
         gpio.cleanup()
+    def setup(self):
+        gpios.setup()

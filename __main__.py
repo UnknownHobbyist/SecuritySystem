@@ -6,21 +6,18 @@ sec_serv = None
 
 if __name__ == '__main__':
 
-    print('1')
-
     import system
     import num_pad
-
-    print('2')
 
     #use RPi.GPIO Layout
     GPIO.setmode(GPIO.BOARD)
 
     #setup for Output Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.OUT)
-
-    sleep(2)
     GPIO.setup(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.OUT)
+
+    GPIO.output(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.LOW)
+    GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
 
 
     #setup for Input Pins
@@ -30,6 +27,7 @@ if __name__ == '__main__':
     GPIO.setwarnings(False);
 
     sec_serv = system.SecuritySystem()
+    sec_serv.setup()
 
     #sec_serv.triggerAlarm()
 
@@ -42,4 +40,6 @@ if __name__ == '__main__':
     try:
         num_pad_checker.join()
     except KeyboardInterrupt:
+        GPIO.output(GPIO_SETTINGS["ALARM_SOURCE"], GPIO.LOW)
+        GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
         GPIO.cleanup()
