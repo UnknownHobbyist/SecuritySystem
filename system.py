@@ -41,7 +41,6 @@ class SecuritySystem:
 
     def triggerAlarm(self):
         if self.alarmState == AlarmState.RUNNING:
-            print('running')
             return
 
         self.alarmState = AlarmState.RUNNING
