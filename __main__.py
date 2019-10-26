@@ -20,7 +20,7 @@ if __name__ == '__main__':
     #disables warnings
     GPIO.setwarnings(False);
 
-    sec_serv = system.SystemService()
+    sec_serv = system.SecuritySystem()
 
 
     # checks if someone inputs something over the membrane pad
