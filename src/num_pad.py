@@ -87,7 +87,8 @@ class NumPad:
             if sec_serv.alarmState == AlarmState.DISABLED:
                 sleep(10)
                 sec_serv.alarmState = AlarmState.ARMED
-            pass
+
+            self.code = ''
         elif char == 'D':
             if self.code[0] == 'A' and len(self.code) > 1:
                 sec_serv.changePWD(self.code[1:])
