@@ -76,9 +76,9 @@ class NumPad:
         if char == 'A':
             if sec_serv.auth(self.code[0:], 'pwd'):
                 self.code = 'A'
-                print('Bitte geben sie nun ihr neues Passwort ein und bestätigen sie mit D!')
+                self.supply_msg('Bitte geben sie nun ihr neues Passwort ein und bestätigen sie mit D!')
             else:
-                print('Um ihr passwort zuändern müssen sie zunächst ihr aktuelles Passwort angeben!')
+                self.supply_msg('Um ihr passwort zuändern müssen sie zunächst ihr aktuelles Passwort angeben!')
                 self.code = ''
         elif char == 'B':
             self.code = ''
@@ -92,16 +92,16 @@ class NumPad:
         elif char == 'D':
             if self.code[0] == 'A' and len(self.code) > 1:
                 sec_serv.changePWD(self.code[1:])
-                print('Sie haben ihren Code erfolgreich auf: ' + self.code + " geändert")
+                self.supply_msg('Sie haben ihren Code erfolgreich auf: ' + self.code + " geändert")
                 self.code = ''
             else:
                 if sec_serv.auth(self.code, "pwd"):
                     sec_serv.stopAlarm()
                     sec_serv.changeAlarm(AlarmState.DISABLED)
-                    print('Willkommen zurück Master!')
+                    self.supply_msg('Willkommen zurück Master!')
                     self.code = ''
                 else:
-                    print('Das eingegebene Passwort ist falsch!')
+                    self.supply_msg('Das eingegebene Passwort ist falsch!')
                     self.code = ''
         elif char == '\#':
             pass
