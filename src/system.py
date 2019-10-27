@@ -59,7 +59,7 @@ class SecuritySystem:
         if self.alarmState == AlarmState.RUNNING or self.alarmState == AlarmState.DISABLED:
             return
 
-        self.changeAlarm(State.RUNNING)
+        self.changeAlarm(AlarmState.RUNNING)
         self.gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
         self.gpio_led_thread.start()
 
