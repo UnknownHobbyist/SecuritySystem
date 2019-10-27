@@ -7,7 +7,7 @@ from settings import *
 from state_enum import *
 
 def supply_msg(msg: str):
-    os.popen("espeak " + msg)
+    os.popen("espeak \'" + msg + "\'")
 
 
 class NumPad:

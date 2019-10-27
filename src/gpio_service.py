@@ -1,6 +1,7 @@
 from time import sleep
 import RPi.GPIO as GPIO
 import state_enum as se
+from state_enum import AlarmState
 from settings import *
 
 
