@@ -5,7 +5,6 @@ import time, threading
 
 import flask
 
-global man_come
 
 app = flask.Flask(__name__)
 
@@ -22,12 +21,13 @@ def start_flask():
     app.run(host=h[0], port=h[1], debug=FLASK_DEBUG)
 @app.route("/smarthome/webhook")
 def smarthome_webhook():
+    """
     if man_come:
         man_come = False
         return "TRUE"
     else:
         return "FALSE"
-
+    """
 
 if __name__ == "__main__":
 
