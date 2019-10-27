@@ -24,7 +24,6 @@ def handleAlarmSignal(thread):
 
 def handleResetSignal(thread):
     from __main__ import sec_serv
-    sec_serv.changeAlarm(AlarmState.DISABLED)
     sec_serv.stopAlarm()
 
 
