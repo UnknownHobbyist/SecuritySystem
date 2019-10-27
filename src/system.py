@@ -49,7 +49,7 @@ class SecuritySystem:
         print("test")
 
     def triggerAlarm(self):
-        if self.alarmState == AlarmState.RUNNING or self.alarmState == AlarmState.DISABLED:
+        if self.alarmState == AlarmState.RUNNING:
             return
 
         self.alarmState = AlarmState.RUNNING
