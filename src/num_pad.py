@@ -88,7 +88,10 @@ class NumPad:
         elif char == 'D':
             if self.code[0] == 'A' and len(self.code) > 1:
                 sec_serv.changePWD(self.code[1:])
-                sec_serv.voice_audio('You successfully changed your password to ' + self.code[1:])
+                a = ""
+                for i in self.code[1:]:
+                    a += i + " "
+                sec_serv.voice_audio('You successfully changed your password to ' + a)
                 self.code = ''
             else:
                 if sec_serv.auth(self.code, "pwd"):
