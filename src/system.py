@@ -85,5 +85,6 @@ class SecuritySystem:
         # self.sound_obj.stop();
 
     def stopAlarm(self):
-        self.changeAlarm(AlarmState.DISABLED)
-        GPIO.output(GPIO_SETTINGS["PIPSER"], GPIO.LOW)
+        if alarmState == AlarmState.RUNNING
+            self.changeAlarm(AlarmState.DISABLED)
+            GPIO.output(GPIO_SETTINGS["PIPSER"], GPIO.LOW)
