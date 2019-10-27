@@ -4,7 +4,7 @@ import subprocess
 import time
 def rfid_named(id):
     from __main__ import sec_serv
-    
+
     print(id)
 
     if sec_serv.auth(id,"rfid")==True:
@@ -31,6 +31,7 @@ def rfid_checker(callback_function):
         stdout, stderr = sp.communicate()
         std = stdout.decode('utf-8').split('\n')
         id = std[1]
+        print(id)
 
         callback_function(id)
 
