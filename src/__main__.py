@@ -38,6 +38,9 @@ if __name__ == "__main__":
     # use RPi.GPIO Layout
     GPIO.setmode(GPIO.BCM)
 
+    GPIO.setup(GPIO_SETTINGS["PIPSER"], GPIO.OUT)
+    GPIO.output(GPIO_SETTINGS["PIPSER"], GPIO.LOW);
+
     # setup for Output Pins
     GPIO.setup(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.OUT)
     GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
@@ -67,4 +70,5 @@ if __name__ == "__main__":
         rr.rfid_checker(rr.rfid_named)
     except KeyboardInterrupt:
         GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
+        GPIO.output(GPIO_SETTINGS["PIPSER"], GPIO.LOW)
         GPIO.cleanup()

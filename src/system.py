@@ -68,7 +68,8 @@ class SecuritySystem:
 
         self.changeAlarm(AlarmState.RUNNING)
 
-        pygame.mixer.music.play(-1)
+        GPIO.output(GPIO_SETTINGS["PIPSER"], GPIO.HIGH)
+
         self.gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
         self.gpio_led_thread.start()
 
@@ -88,4 +89,4 @@ class SecuritySystem:
 
     def stopAlarm(self):
         self.changeAlarm(AlarmState.DISABLED)
-        pygame.mixer.pause()
+        GPIO.output(GPIO_SETTINGS["PIPSER"], GPIO.LOW)
