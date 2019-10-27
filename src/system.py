@@ -29,7 +29,7 @@ class SecuritySystem:
     # Changes the state of the alarm
     #
     def voice_audio(self, msg):
-        os.popen("espeak ''" + msg + "'")
+        os.popen('espeak  "'+ msg + '"')
 
     def changeAlarm(self, state: AlarmState):
         self.alarmState = state
