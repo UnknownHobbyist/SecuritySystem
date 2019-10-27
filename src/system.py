@@ -1,6 +1,7 @@
 import gpio_service as gpios
 import threading
 import vlc, os
+import subprocess
 
 from json_service import JsonService
 from state_enum import *
@@ -66,7 +67,7 @@ class SecuritySystem:
         self.gpio_led_thread.start()
 
         # hierfür müsste möglicherweise ein neuer thread gestartet werden
-        self.sound_obj = subprocess.popen('vlc', '../src/alarm.mp3', '--loop')
+        self.sound_obj = subprocess.Popen('vlc', '../src/alarm.mp3', '--loop')
 
     def freePorts(self):
         gpio.cleanup()
