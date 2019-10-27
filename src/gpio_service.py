@@ -1,7 +1,6 @@
-import time
+from time import sleep
 import RPi.GPIO as GPIO
 import state_enum as se
-import sleep
 from settings import *
 
 
