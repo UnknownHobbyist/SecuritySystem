@@ -14,7 +14,7 @@ def rfid_checker(callback_function):
     while True:
         sp = subprocess.Popen(['python3.7', '/home/pi/MFRC522-python/Read.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = sp.communicate()
-        std = stdout.split('\n')
+        std = stdout.decode('utf-8').split('\n')
         id = std[1]
 
         callback_function(id)
