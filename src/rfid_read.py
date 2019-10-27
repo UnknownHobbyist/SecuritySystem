@@ -3,7 +3,15 @@ import subprocess
 
 import time
 def rfid_named(id):
-    print(id)
+    from __main__ import sec_serv
+
+    if sec_serv.auth(id,"rfid")==True:
+        if sec_serv.alarmState != AlarmState.DISABLED:
+            sec_serv.changeAlarm(DISABLED)
+            if sec_serv.alarmState == AlarmState.RUNNING:
+                sec_serv.stopAlarm()
+        else:
+            sec_serv.changeAlarm(ARMED)
 
 def rfid_checker(callback_function):
 
