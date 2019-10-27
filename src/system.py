@@ -67,12 +67,13 @@ class SecuritySystem:
             return
 
         self.changeAlarm(AlarmState.RUNNING)
+
+        pygame.mixer.music.play(-1)
         self.gpio_led_thread = threading.Thread(target=gpios.gpioAlarmLEDs)
         self.gpio_led_thread.start()
 
         # hierfür müsste möglicherweise ein neuer thread gestartet werden
         #self.sound_obj = subprocess.Popen('vlc', '../src/alarm.mp3', '--loop')
-        pygame.mixer.music.play(-1)
 
 
 
