@@ -10,9 +10,9 @@ def gpioAlarmLEDs():
 
     while sec_serv.alarmState == se.AlarmState.RUNNING:
         GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.HIGH)
-        time.sleep(0.5)
+        sleep(0.5)
         GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
-        time.sleep(0.5)
+        sleep(0.5)
 
 
 def handleAlarmSignal(thread):
