@@ -77,6 +77,6 @@ class SecuritySystem:
 
             # self.sound_obj.stop();
 
-    def stopAlarm():
+    def stopAlarm(self):
         self.changeAlarm(AlarmState.DISABLED)
         self.sound_obj.kill()
