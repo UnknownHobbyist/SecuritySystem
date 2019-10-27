@@ -109,5 +109,3 @@ class NumPad:
             pass
         else:
             self.code += char
-
-        print(self.code)
