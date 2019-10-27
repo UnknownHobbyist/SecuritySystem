@@ -20,10 +20,10 @@ def rfid_checker():
 
             if sec_serv.auth(str(id),"rfid"):
                 if sec_serv.alarmState != AlarmState.DISABLED:
+                    if sec_serv.alarmState == AlarmState.RUNNING:
+                        sec_serv.stopAlarm()
                     sec_serv.changeAlarm(AlarmState.DISABLED)
                 else:
-                    sec_serv.alarmState == AlarmState.RUNNING:
-                    sec_serv.stopAlarm()
                     sec_serv.changeAlarm(AlarmState.ARMED)
                 #print("Security system " + str(sec_serv.alarmState))
             else:
