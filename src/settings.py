@@ -7,3 +7,6 @@ GPIO_SETTINGS = {
 }
 
 Hash_Method = "sha256"
+
+FLASK_NAME = "0.0.0.0:6666"
+FLASK_DEBUG = False

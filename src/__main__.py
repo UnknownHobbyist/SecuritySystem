@@ -1,6 +1,30 @@
 import RPi.GPIO as GPIO
 import threading
 from settings import *
+import time, threading
+
+import flask
+
+app = flask.Flask(__name__)
+
+man_come = False
+def set_man_come_off():
+    time.sleep(7)
+
+def man_come_to_home():
+    man_come = True
+    t = threading.Thread(target=set_man_come_off)
+    t.start()
+def start_flask():
+    h = FLASK_NAME.split(':')
+    app.run(host=h[0], port=h[1], debug=FLASK_DEBUG)
+@app.route("/smarthome/webhook")
+def smarthome_webhook():
+    if man_come:
+        man_come = False
+        return "TRUE"
+    else:
+        return "FALSE"
 
 
 if __name__ == "__main__":
@@ -34,7 +58,9 @@ if __name__ == "__main__":
     num_pad = num_pad.NumPad();
     num_pad_checker = threading.Thread(target=num_pad.check)
     num_pad_checker.start()
-
+    # start smarthome webserver
+    t_f = threading.Thread(target=smarthome_webhook)
+    t_f.start()
     try:
         rr.rfid_checker(rr.rfid_named)
     except KeyboardInterrupt:
