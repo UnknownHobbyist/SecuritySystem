@@ -14,8 +14,9 @@ def rfid_checker():
 
     while True:
         try:
+            print(1)
             id, text = reader.read()
-
+            print(2)
             print(id + " something")
 
             if sec_serv.auth(str(id),"rfid"):
