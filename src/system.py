@@ -22,9 +22,6 @@ class SecuritySystem:
         # if the alarm is armed or not
         self.changeAlarm(AlarmState.ARMED)
 
-        pygame.mixer.init()
-        pygame.mixer.music.load('../rsc/alarm.mp3')
-
         #used to play an alarm sound, do not remove
         #self.Player = vlc.Instance('--loop')
 
