@@ -1,9 +1,10 @@
 import __main__
 import RPi.GPIO as GPIO
+import os
+from time import sleep
+
 from settings import *
 from state_enum import *
-import os
-
 
 def supply_msg(msg: str):
     os.popen("espeak " + msg)
