@@ -21,8 +21,10 @@ class SecuritySystem:
         self.changeAlarm(AlarmState.ARMED)
 
         #used to play an alarm sound, do not remove
-        self.sound_obj = vlc.MediaPlayer("/home/pi/Desktop/song.mp3")
-        self.sound_obj.set_playback_mode(vlc.PlaybackMode.loop)
+        #self.Player = vlc.Instance('--loop')
+
+        #self.sound_obj = vlc.MediaPlayer("../rsc/alarm.mp3")
+        #self.sound_obj.set_playback_mode(vlc.PlaybackMode.loop)
 
     #
     # Changes the state of the alarm
@@ -62,7 +64,7 @@ class SecuritySystem:
         self.gpio_led_thread.start()
 
         # hierfür müsste möglicherweise ein neuer thread gestartet werden
-        self.sound_obj.play()
+        #self.sound_obj.play()
 
     def freePorts(self):
         gpio.cleanup()
@@ -75,4 +77,4 @@ class SecuritySystem:
 
     def stopAlarm():
         self.changeAlarm(AlarmState.DISABLED)
-        self.sound_obj.stop()
+        #self.sound_obj.stop()
