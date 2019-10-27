@@ -14,7 +14,7 @@ def rfid_named(id):
             print("Sicherheitssystem deaktiviert")
 
             if sec_serv.alarmState == AlarmState.RUNNING:
-                sec_serv.stopAlarm()
+                #sec_serv.stopAlarm()
                 print("Alarm deaktiviert")
 
         else:
