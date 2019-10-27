@@ -113,9 +113,9 @@ class NumPad:
                 else:
                     print('Das eingegebene Passwort ist falsch!')
                     self.code = ''
-        elif char = '\#':
+        elif char == '\#':
             pass
-        elif char = '*':
+        elif char == '*':
             pass
         else:
             self.code += char
