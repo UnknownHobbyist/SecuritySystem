@@ -36,7 +36,7 @@ if __name__ == "__main__":
     num_pad_checker.start()
 
     try:
-        rr.refid_checker()
+        rr.rfid_checker()
     except KeyboardInterrupt:
         GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
         GPIO.cleanup()
