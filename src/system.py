@@ -18,7 +18,7 @@ class SecuritySystem:
     def __init__(self):
 
         # if the alarm is armed or not
-        self.alarmState = AlarmState.DISABLED
+        self.alarmState = AlarmState.ARMED
 
         #used to play an alarm sound, do not remove
         #self.vlc_inst = vlc.Instance('--input-repeat=999999')
