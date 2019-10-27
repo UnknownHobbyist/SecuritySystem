@@ -7,12 +7,11 @@ def rfid_named(id):
 
     if sec_serv.auth(id,"rfid")==True:
         if sec_serv.alarmState != AlarmState.DISABLED:
-            sec_serv.changeAlarm(AlarmState.DISABLED)
-
             if sec_serv.alarmState == AlarmState.RUNNING:
                 sec_serv.voice_audio("Alarm disabled")
             else:
                 sec_serv.voice_audio("Security System disabled")
+            sec_serv.changeAlarm(AlarmState.DISABLED)
 
         else:
             sec_serv.voice_audio("Security System enabled")
