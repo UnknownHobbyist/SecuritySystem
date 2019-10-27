@@ -9,7 +9,7 @@ def rfid_checker():
     from __main__ import sec_serv
 
     while True:
-        sp = subprocess.Popen(['python3.7', '/home/pi/MFRC522-python/Read.py'], stdout=subproces.PIPE, stderr=subprocess.PIPE)
+        sp = subprocess.Popen(['python3.7', '/home/pi/MFRC522-python/Read.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = sp.communicate()
         print(stdout)
         time.sleep(2.5)
