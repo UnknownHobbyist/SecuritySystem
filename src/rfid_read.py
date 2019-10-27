@@ -1,15 +1,16 @@
-from state_enum import *
 import subprocess
 
 import time
 def rfid_named(id):
     from __main__ import sec_serv
+    from state_enum import AlarmState
+
 
     print(id)
 
     if sec_serv.auth(id,"rfid")==True:
         if sec_serv.alarmState != AlarmState.DISABLED:
-            sec_serv.changeAlarm(DISABLED)
+            sec_serv.changeAlarm(AlarmState.DISABLED)
             print("Sicherheitssystem deaktiviert")
 
             if sec_serv.alarmState == AlarmState.RUNNING:
@@ -17,7 +18,7 @@ def rfid_named(id):
                 print("Alarm deaktiviert")
 
         else:
-            sec_serv.changeAlarm(ARMED)
+            sec_serv.changeAlarm(AlarmState.ARMED)
             print("Sicherheitssystem aktiviert")
 
 def rfid_checker(callback_function):
