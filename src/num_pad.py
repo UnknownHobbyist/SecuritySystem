@@ -56,20 +56,7 @@ class NumPad:
                     GPIO.output(self.col[j], 0)
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
-#<<<<<<< HEAD:src/num_pad.py
                             addChar(self.matrix[i][j])
-#=======
-                            if self.matrix[i][j] == "D":
-
-                                self.runCode()
-                            elif self.matrix[i][j] == "A":
-                                self.code += "A"
-                                self.runCode()
-                            elif self.matrix[i][j] == "B":
-                                self.code = ""
-                            else:
-                                self.code += str(self.matrix[i][j])
-#>>>>>>> 3c34795c45c0db879f6ee3278561424d3bdd30fc:num_pad.py
 
                             print(self.matrix[i][j])
                             while GPIO.input(self.row[i]) == 0:
