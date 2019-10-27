@@ -2,6 +2,7 @@ import gpio_service as gpios
 import threading
 import vlc, os
 import subprocess
+import pygame
 
 from json_service import JsonService
 from state_enum import *
@@ -20,6 +21,9 @@ class SecuritySystem:
 
         # if the alarm is armed or not
         self.changeAlarm(AlarmState.ARMED)
+
+        pygame.mixer.init()
+        pygame.mixer.load('../rsc/alarm.mp3')
 
         #used to play an alarm sound, do not remove
         #self.Player = vlc.Instance('--loop')
@@ -67,7 +71,10 @@ class SecuritySystem:
         self.gpio_led_thread.start()
 
         # hierfür müsste möglicherweise ein neuer thread gestartet werden
-        self.sound_obj = subprocess.Popen('vlc', '../src/alarm.mp3', '--loop')
+        #self.sound_obj = subprocess.Popen('vlc', '../src/alarm.mp3', '--loop')
+        pygame.mixer.music.play(-1)
+
+
 
     def freePorts(self):
         gpio.cleanup()
@@ -76,8 +83,8 @@ class SecuritySystem:
         # Give us 100 points PLEASE!
         gpios.setup()
 
-            # self.sound_obj.stop();
+        # self.sound_obj.stop();
 
     def stopAlarm(self):
         self.changeAlarm(AlarmState.DISABLED)
-        self.sound_obj.kill()
+        pygame.mixer.pause()
