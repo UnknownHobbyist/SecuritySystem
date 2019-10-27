@@ -5,9 +5,6 @@ def rfid_named(id):
     from __main__ import sec_serv
     from state_enum import AlarmState
 
-
-    print(id)
-
     if sec_serv.auth(id,"rfid")==True:
         if sec_serv.alarmState != AlarmState.DISABLED:
             sec_serv.changeAlarm(AlarmState.DISABLED)
@@ -20,6 +17,9 @@ def rfid_named(id):
             sec_serv.voice_audio("Security System enabled")
             time.sleep(10)
             sec_serv.changeAlarm(AlarmState.ARMED)
+
+    else:
+        sec_serv.voice_audio("Access denied")
 
 
 def rfid_checker(callback_function):
