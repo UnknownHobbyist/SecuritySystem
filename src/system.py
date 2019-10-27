@@ -4,8 +4,7 @@ import vlc, os
 import subprocess
 import pygame
 import RPi.GPIO as GPIO
-
-
+from settings import *
 from json_service import JsonService
 from state_enum import *
 
