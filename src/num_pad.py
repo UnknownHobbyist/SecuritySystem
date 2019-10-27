@@ -6,10 +6,6 @@ from time import sleep
 from settings import *
 from state_enum import *
 
-def supply_msg(msg: str):
-    os.popen("espeak \'" + msg + "\'")
-
-
 class NumPad:
 
     matrix = None
@@ -76,9 +72,9 @@ class NumPad:
         if char == 'A':
             if sec_serv.auth(self.code[0:], 'pwd'):
                 self.code = 'A'
-                supply_msg('Bitte geben sie nun ihr neues Passwort ein und bestätigen sie mit D!')
+                sec_serv.voice_audio('Bitte geben sie nun ihr neues Passwort ein und bestätigen sie mit D!')
             else:
-                supply_msg('Um ihr passwort zuändern müssen sie zunächst ihr aktuelles Passwort angeben!')
+                sec_serv.voice_audio('Um ihr passwort zuändern müssen sie zunächst ihr aktuelles Passwort angeben!')
                 self.code = ''
         elif char == 'B':
             self.code = ''
@@ -92,16 +88,16 @@ class NumPad:
         elif char == 'D':
             if self.code[0] == 'A' and len(self.code) > 1:
                 sec_serv.changePWD(self.code[1:])
-                supply_msg('Sie haben ihren Code erfolgreich auf: ' + self.code + " geändert")
+                sec_serv.voice_audio('Sie haben ihren Code erfolgreich auf: ' + self.code + " geändert")
                 self.code = ''
             else:
                 if sec_serv.auth(self.code, "pwd"):
                     sec_serv.stopAlarm()
                     sec_serv.changeAlarm(AlarmState.DISABLED)
-                    supply_msg('Willkommen zurück Master!')
+                    sec_serv.voice_audio('Willkommen zurück Master!')
                     self.code = ''
                 else:
-                    supply_msg('Das eingegebene Passwort ist falsch!')
+                    sec_serv.voice_audio('Das eingegebene Passwort ist falsch!')
                     self.code = ''
         elif char == '\#':
             pass
@@ -109,5 +105,3 @@ class NumPad:
             pass
         else:
             self.code += char
-
-        print(self.code)
