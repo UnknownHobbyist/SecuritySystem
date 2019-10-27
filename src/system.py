@@ -43,12 +43,12 @@ class SecuritySystem:
             return False
 
     def changePWD(self, pwd: str):
-        dict = { 'rfid': JsonService.getJson['rfid'], 'pwd': pwd }
+        dict = { 'rfid': JsonService.getJson()['rfid'], 'pwd': pwd }
         JsonService.setJson(dict)
 
     #feature for the future
     def changeRFID(self, rfid: str):
-        dict = { 'rfid': rfid, 'pwd': JsonService.getJson['pwd'] }
+        dict = { 'rfid': rfid, 'pwd': JsonService.getJson()['pwd'] }
         JsonService.setJson(dict)
 
     def triggerAlarm(self):
