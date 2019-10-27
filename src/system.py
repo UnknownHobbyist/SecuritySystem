@@ -75,3 +75,4 @@ class SecuritySystem:
             # self.sound_obj.stop();
 
     def stopAlarm():
+        pass
