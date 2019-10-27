@@ -16,6 +16,7 @@ def gpioAlarmLEDs():
 
 def handleAlarmSignal(thread):
     from __main__ import sec_serv
+    sleep(5)
     sec_serv.triggerAlarm()
 
 
