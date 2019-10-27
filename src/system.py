@@ -1,6 +1,6 @@
 import gpio_service as gpios
 import threading
-import vlc
+import vlc, os
 
 from json_service import JsonService
 from state_enum import *
@@ -28,6 +28,9 @@ class SecuritySystem:
     #
     # Changes the state of the alarm
     #
+    def voice_audio(msg):
+        os.popen("espeak " + msg)
+
     def changeAlarm(self, state: AlarmState):
         self.alarmState = state
 

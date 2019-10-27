@@ -11,15 +11,16 @@ def rfid_named(id):
     if sec_serv.auth(id,"rfid")==True:
         if sec_serv.alarmState != AlarmState.DISABLED:
             sec_serv.changeAlarm(AlarmState.DISABLED)
-            print("Sicherheitssystem deaktiviert")
+            sec_sev.voice_audi("Security System disabled")
 
             if sec_serv.alarmState == AlarmState.RUNNING:
-                #sec_serv.stopAlarm()
-                print("Alarm deaktiviert")
+                sec_sev.voice_audi("Alarm disabled")
 
         else:
+            time.sleep(10)
             sec_serv.changeAlarm(AlarmState.ARMED)
-            print("Sicherheitssystem aktiviert")
+            sec_sev.voice_audio("Security System enabled")
+            time.sleep(10)
 
 def rfid_checker(callback_function):
 
