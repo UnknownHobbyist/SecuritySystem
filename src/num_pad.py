@@ -83,8 +83,9 @@ class NumPad:
             self.code = ''
         elif char == 'C':
             # The device is set to armed State
-            sleep(10)
-            sec_serv.alarmState = AlarmState.ARMED
+            if sec_serv.alarmState == AlarmState.DISABLED:
+                sleep(10)
+                sec_serv.alarmState = AlarmState.ARMED
             pass
         elif char == 'D':
             if self.code[0] == 'A' and len(self.code) > 1:
