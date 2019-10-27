@@ -21,9 +21,8 @@ class SecuritySystem:
         self.changeAlarm(AlarmState.ARMED)
 
         #used to play an alarm sound, do not remove
-        self.vlc_inst = vlc.Instance('--input-repeat=999999')
-        self.sound_obj = self.vlc_inst.media_player_new()
-        self.sound_obj.set_media("./sounds/alarm.mp3")
+        self.sound_obj = vlc.MediaPlayer("/home/pi/Desktop/song.mp3")
+        self.sound_obj.set_playback_mode(vlc.PlaybackMode.loop)
 
     #
     # Changes the state of the alarm
