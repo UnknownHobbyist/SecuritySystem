@@ -43,10 +43,13 @@ class SecuritySystem:
             return False
 
     def changePWD(self, pwd: str):
-        print("test")
+        dict = { 'rfid': JsonService.getJson['rfid'], 'pwd': pwd }
+        JsonService.setJson(dict)
 
+    #feature for the future
     def changeRFID(self, rfid: str):
-        print("test")
+        dict = { 'rfid': rfid, 'pwd': JsonService.getJson['pwd'] }
+        JsonService.setJson(dict)
 
     def triggerAlarm(self):
         if self.alarmState == AlarmState.RUNNING or self.alarmState == AlarmState.DISABLED:
