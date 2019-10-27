@@ -56,7 +56,7 @@ class NumPad:
                     GPIO.output(self.col[j], 0)
                     for i in range(4):
                         if GPIO.input(self.row[i]) == 0:
-                            addChar(self.matrix[i][j])
+                            self.addChar(self.matrix[i][j])
 
                             print(self.matrix[i][j])
                             while GPIO.input(self.row[i]) == 0:
