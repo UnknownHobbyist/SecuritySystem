@@ -1,5 +1,7 @@
 from state_enum import *
+import subprocess
 
+import time
 def rfid_checker():
 
     import RPi.GPIO as GPIO
@@ -13,24 +15,7 @@ def rfid_checker():
     reader = SimpleMFRC522()
 
     while True:
-        try:
-            print(1)
-            id, text = reader.read()
-            print(2)
-            print(id + " something")
-
-            if sec_serv.auth(str(id),"rfid"):
-                if sec_serv.alarmState != AlarmState.DISABLED:
-                    if sec_serv.alarmState == AlarmState.RUNNING:
-                        sec_serv.stopAlarm()
-                    sec_serv.changeAlarm(AlarmState.DISABLED)
-                else:
-                    sec_serv.changeAlarm(AlarmState.ARMED)
-                #print("Security system " + str(sec_serv.alarmState))
-            else:
-                print("Access has been denied")
-        except:
-            GPIO.output(GPIO_SETTINGS["ALARM_CHANGER"], GPIO.LOW)
-            GPIO.cleanup()
-        finally:
-            pass
+        sp = subprocess.Popen(['python3.7', '/home/pi/MFRC522-python/Read.py'], stdout=subproces.PIPE, stderr=subprocess.PIPE)
+        stdout, stderr = sp.communicate()
+        print(stdout)
+        time.sleep(2.5)
