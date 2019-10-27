@@ -72,9 +72,9 @@ class NumPad:
         if char == 'A':
             if sec_serv.auth(self.code[0:], 'pwd'):
                 self.code = 'A'
-                sec_serv.voice_audio('Bitte geben sie nun ihr neues Passwort ein und bestätigen sie mit D!')
+                sec_serv.voice_audio('Please enter your new password yet and accept with D')
             else:
-                sec_serv.voice_audio('Um ihr passwort zuändern müssen sie zunächst ihr aktuelles Passwort angeben!')
+                sec_serv.voice_audio('Please enter your current password first!')
                 self.code = ''
         elif char == 'B':
             self.code = ''
@@ -82,22 +82,22 @@ class NumPad:
             # The device is set to armed State
             if sec_serv.alarmState == AlarmState.DISABLED:
                 sleep(10)
-                sec_serv.alarmState = AlarmState.ARMED
+                sec_serv.changeAlarm(AlarmState.armed)
 
             self.code = ''
         elif char == 'D':
             if self.code[0] == 'A' and len(self.code) > 1:
                 sec_serv.changePWD(self.code[1:])
-                sec_serv.voice_audio('Sie haben ihren Code erfolgreich auf: ' + self.code + " geändert")
+                sec_serv.voice_audio('You successfully changed your password to ' + self.code[1:])
                 self.code = ''
             else:
                 if sec_serv.auth(self.code, "pwd"):
                     sec_serv.stopAlarm()
                     sec_serv.changeAlarm(AlarmState.DISABLED)
-                    sec_serv.voice_audio('Willkommen zurück Master!')
+                    sec_serv.voice_audio('Welcome home master!')
                     self.code = ''
                 else:
-                    sec_serv.voice_audio('Das eingegebene Passwort ist falsch!')
+                    sec_serv.voice_audio('Access denied')
                     self.code = ''
         elif char == '\#':
             pass
