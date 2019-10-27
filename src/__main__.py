@@ -5,6 +5,8 @@ import time, threading
 
 import flask
 
+global man_come
+
 app = flask.Flask(__name__)
 
 man_come = False
