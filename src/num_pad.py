@@ -74,7 +74,7 @@ class NumPad:
         from __main__ import sec_serv
 
         if char == 'A':
-            if sec_serv.auth(self.code[1:], 'pwd'):
+            if sec_serv.auth(self.code[0:], 'pwd'):
                 self.code = 'A'
                 print('Bitte geben sie nun ihr neues Passwort ein und bestätigen sie mit D!')
             else:
@@ -108,3 +108,5 @@ class NumPad:
             pass
         else:
             self.code += char
+
+        print(self.code)
