@@ -17,10 +17,10 @@ def rfid_named(id):
                 sec_serv.voice_audio("Alarm disabled")
 
         else:
-            time.sleep(10)
-            sec_serv.changeAlarm(AlarmState.ARMED)
             sec_serv.voice_audio("Security System enabled")
             time.sleep(10)
+            sec_serv.changeAlarm(AlarmState.ARMED)
+
 
 def rfid_checker(callback_function):
 
